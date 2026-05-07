@@ -1,0 +1,57 @@
+[
+  {
+    "email": "admin@gmail.com",
+    "number": "8765432",
+    "password": "admin123"
+  },
+  {
+    "email": "gungun@gmail.com",
+    "number": "34567890",
+    "password": "gun"
+  },
+  {
+    "email": "bhumika@gmail.com",
+    "number": "76543",
+    "password": "bhumi"
+  },
+  {
+    "email": "gungun123@gmail.com",
+    "number": "234567",
+    "password": "gungun"
+  },
+  {
+    "email": "bhumika@gamil.com",
+    "number": "9876543",
+    "password": "bhumi"
+  },
+  {
+    "email": "dheeptha@gmail.com",
+    "number": "9876543",
+    "password": "dheeptha"
+  },
+  {
+    "email": "kashish@gmail.com",
+    "number": "65432",
+    "password": "kashiah"
+  },
+  {
+    "email": "chaitanya@gmail.com",
+    "number": "876543",
+    "password": "chaitanya"
+  },
+  {
+    "email": "bhumi@gmail.com",
+    "number": "8765432",
+    "password": "bhu"
+  },
+  {
+    "email": "chaitanya12@gmail.com",
+    "number": "8765432",
+    "password": "chait"
+  },
+  {
+    "email": "gungun1234@gmail.com",
+    "number": "7654322",
+    "password": "gunjab"
+  }
+]

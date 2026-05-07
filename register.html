@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.gigabyte.com/FileUpload/US/WebPage/-491/assets/images/ezgif.com-optimize-1.gif');
+    background-repeat:no-repeat;
+    background-size:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    background-color:rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px 30px;
+    width:500px;
+    /* max-width: 400px; */
+  }
+
+  h2 {
+    text-align: center;
+    color:white;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+
+  input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #response-message {
+    margin-top: 15px;
+    text-align: center;
+    color: #28a745;
+  }
+
+</style>
+<body>
+<div class="container">
+  <h2>Register</h2>
+  <form id="register-form">
+    <label for="name" style="color:white;">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+    <label for="age" style="color:white;">Age:</label>
+    <input type="number" id="age" name="age" placeholder="Enter your age" required><br>
+
+    <label for="email" style="color:white;">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your Email" required><br>
+
+
+    <label for="password" style="color:white;">Password:</label>
+    <input type="password" id="password" name="password"  placeholder="Enter Password" required><br>
+
+    <label for="phone" style="color:white;">Phone:</label>
+    <input type="number" id="phone" name="phone" placeholder="Enter your phone number" required><br>
+
+    <label for="ticket" style="color:white;">No. of Movie Ticket:</label>
+    <input type="number" id="ticket" name="ticket" placeholder="Enter your no. of tickets" required><br>
+ 
+    <label for="movie" style="color:white;">Name of Movie:</label>
+    <input type="text" id="movie" name="movie" placeholder="Enter the Name of Movie" required><br>
+
+    <button id="button" type="submit">Register</button>
+  </form>
+
+  <div id="response-message"></div>
+  </div>
+
+  <script>
+    let register=document.getElementById("register-form");
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("register-form");
+      // Resets the form fields to their default values
+    });
+    register.reset(); 
+    document.getElementById("register-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const phone = document.getElementById("phone").value;
+      const ticket = document.getElementById("ticket").value;
+      const movie = document.getElementById("movie").value;
+     
+      const formData = {
+        name: name,
+        age : age,
+        email: email,
+        password: password,
+        phone : phone,
+      ticket: ticket,
+      movie: movie
+      };
+
+      
+      fetch('http://localhost:3001/register_user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+       console.log(data)
+        document.getElementById("response-message").innerText = data.message;
+      })
+      .catch(error => {
+        console.log(error.message)
+    });
+    // register.reset();
+    
+    });
+   
+    document.getElementById('button').addEventListener('click',()=>{
+      alert('Form submitted successfully');});
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+body{
+    background-image: url('https://img.freepik.com/free-photo/digital-art-with-city-landscape-architecture_23-2151065702.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    font-size: 30px;
+    transition: 2.5s;
+    transform: scale(0.3);
+    margin-top:5%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+/* section.show-animate {
+    transform: scale(1.1);
+} */
+
+/* Modal CSS */
+#login {
+    /* display: none;  */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#logintwo {
+    margin-bottom: 2%;
+    margin-top:20%;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    color:black;
+    transition: all 0.3s;
+    position: relative;
+    margin-left:-1%;
+}
+
+/* .btn span {
+    transition: all 0.5s;
+} */
+
+#logintwo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Changed to full width */
+    height: 100%;
+    z-index: 1;
+    opacity: 0.8;
+    transition: all 0.5s;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    /* Correct border property */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* Correct border property */
+    /* transform: scale(0.1, 1); */
+}
+
+#logintwo:hover span {
+    letter-spacing: 2px;
+}
+
+#logintwo:hover::before {
+    opacity: 1;
+    /* Make the borders visible on hover */
+    transform: scale(1, 1);
+    /* Expand the borders */
+}
+
+#logintwo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    background-color: rgba(65, 61, 61, 0.1);
+}
+
+#logintwo:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+#logintwo:hover span::after {
+    border-top: 1px solid green;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    /* width: 300px; */
+    text-align: center;
+    height: 600px;
+    width: 1250px;
+    display: flex;
+    margin-right:11%;
+   
+}
+
+.modal {
+    border: 2px solid gray;
+    height: 300px;
+    width: 300px;
+    left: 10;
+    top: 10;
+    padding: 20px;
+}
+
+.welcome {
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    text-align: left;
+    margin-left: 150px;
+    margin-top: -200px;
+    padding-left: 150px;
+    padding: 20px;
+    height: 600px;
+    width: 400px;
+}
+
+#sign {
+    font-size: 15px;
+    border: 2px solid white;
+    width: 200px;
+    height: 40px;
+    border-radius: 100px;
+    margin-left:65px;
+    cursor: pointer;
+    padding-right:25px;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:white;    
+}
+
+.welcome h1,
+h4,
+button#sign {
+    padding-left: 50px;
+}
+
+#page2 {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    /* text-align: left; */
+    margin-left: 0px;
+    margin-top: -200px;
+    padding-left: 150px;
+    padding: 20px;
+    height: 600px;
+    width: 550px;
+}
+
+#page2 h1 {
+    color:white;
+}
+
+#page2 h4 {
+    color: lightgray;
+}
+#page2 input{
+    padding:15px;
+    height:40px;
+    width:400px;
+    margin-left:20px;
+    border:1px solid black;
+    border-radius: 100px;
+}
+#create{
+    height:40px;
+    width:200px;
+    border:1px solid #fff;
+    border-radius: 100px;
+    background: #373B44;
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    cursor: pointer;
+}
+.Login{
+    margin-top:-10%;
+    
+}

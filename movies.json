@@ -1,0 +1,26 @@
+[
+  {
+    "title": "the hindi medium",
+    "year": 2011,
+    "director": "bhumika",
+    "genre": "comedy",
+    "rating": 8,
+    "description": "good"
+  },
+  {
+    "title": "the magic stick",
+    "year": 2001,
+    "director": "xyz",
+    "genre": "horror",
+    "rating": 10,
+    "description": "very good movie"
+  },
+  {
+    "title": "the magic coat",
+    "year": 2004,
+    "director": "gungun",
+    "genre": "fantasy",
+    "rating": 10,
+    "description": "very good"
+  }
+]

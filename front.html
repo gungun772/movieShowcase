@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Showcase </title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    
+    </style>
+</head>
+<body>
+    <div class="main_nav">
+        <p class="first_p" id="main">CineSequel</p>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li class="content part1"><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/register"><i
+                        class="fa-solid fa-user"></i>Registration</a></li>
+            <li class="content part7 cont_p"><a href="/contact"><i
+                        class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="#tv_part"><a href="#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="#sports_part">Sports</a></li>
+                                <li class="sub_part"><a href="/front" target="_blank">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i
+                                class="fa-solid fa-user"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i
+                                class="fa-solid fa-address-book"></i>Signin</a></li>
+                </ul>
+            </nav>
+            <div class="front">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Unlimited Movies, TV Shows and More.</h1>
+                    <p>Watch anywhere. Cancel anytime.</p>
+                    <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                    <form id="emailForm" class="email-form">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        <button type="submit">Get Started</button>
+                    </form>
+                </div>
+            </div>
+</div>
+<!-- sliding images -->
+<div class="movieDis">
+    <img class="aboutImg" src="./aboutus.gif" alt="loading...">
+    <h1 class="head">About Us</h1>
+    <div class="dis1">
+        <div class="disImg1 img"><img class="Img" src="https://images5.alphacoders.com/131/1315822.jpg" alt=""></div>
+        <div class="disHead1">
+            <h1>English Movies</h1>
+            <p>Watching English movies can be a fun and effective way to improve your English language skills. You can learn new vocabulary, grammar, and pronunciation.</p>
+        </div>
+    </div>
+
+    <div class="dis2">
+        <div class="disHead2">
+            <h1>Sports Shows</h1>
+            <p>Sports often involve intense competition, which can be thrilling to watch.</p>
+        </div>
+        <div class="disImg2 img"><img class="Img Img2" src="https://i.redd.it/5og2em072fvb1.jpg" alt=""></div>
+    </div>
+
+    <div class="dis3">
+        <div class="disImg3 img"><img class="Img Img3" src="https://cdn.europosters.eu/image/hp/106300.jpg" alt=""></div>
+        <div class="disHead3">
+            <h1>English Show</h1>
+            <p>Many English shows are known for their high production values, compelling narratives, and memorable characters.</p>
+        </div>
+    </div>
+
+    <div class="dis4">
+        <div class="disHead4">
+            <h1>Korean Dramas</h1>
+            <p>K-dramas often feature stunning visuals and picturesque settings.</p>
+        </div>
+        <div class="disImg4 img"><img class="Img Img4" src="https://korean-binge.com/wp-content/uploads/2022/04/korb-10-striking-posters.jpg?w=1200" alt=""></div>
+    </div>
+
+    <div class="dis5">
+        <div class="disImg5 img"><img class="Img Img5" src="https://m.media-amazon.com/images/I/71VVvxJWRbL.jpg" alt=""></div>
+        <div class="disHead5">
+            <h1>Anime</h1>
+            <p> Anime's vibrant colors, exaggerated expressions, and fluid animation create a visually striking experience.</p>
+        </div>
+    </div>
+
+    <div class="dis6">
+        <div class="disHead6">
+            <h1>Chinese Drama</h1>
+            <p>Many C-dramas are based on historical events or fiction, providing a rich and immersive experience.</p>
+        </div>
+        <div class="disImg6 img"><img class="Img Img6" src="https://images.herzindagi.info/image/2024/Apr/chinese-medical-dramas-on-youtube.jpg" alt=""></div>
+    </div>
+</div>
+
+
+<!-- movie management -->
+<!-- <header>
+    <h1>Movie Manager</h1>
+</header> -->
+
+<!-- <div class="container">
+   <div class="actions-panel">
+        <h2 class="section-header" style="font-size:3.5rem; color:white;">Movie Actions</h2>
+        <p class="subtitle">Manage your movie collection with these tools</p>
+        <button id="addMovieButton"><a href="/addmovie" style="text-decoration: none; color:white;">Add Movie</a></button>
+        <button id="updateMovieButton"><a href="/updatemovie" style="text-decoration: none; color:white;">Update Movie</a></button>
+        <button id="deleteMovieButton">Delete Movie</button>
+    </div>
+    <div id="movies-container">
+        <h2 class="section-header">Your Movie Collection</h2>
+        <ul id="movies-list"></ul>
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <i>📽️</i>
+            <h3>Your collection is empty</h3>
+            <p>No movies in your collection yet. Add your first movie using the Add Movie button above!</p>
+        </div>
+    </div>
+
+</div> -->
+<div class="login">
+        <h2 class="login_name">Movie Mingle</h2>
+        <a href="#"><button class="login_button"><a href="login_page.html" target="_blank">LogIn</a></button></a>
+        <a href="#"><button class="signin_button"><a href="login_page.html" target="_blank"> Sign In</a></button></a>
+<h1 class="login_head">Unlimited movies,<span> TV shows and more</span></h1>
+        <p class="login_para">Ready to watch? Enter your email to create or restart your membership.</p>
+        <input type="email" placeholder="Email Address" class="email">
+        <a href="#"><button class="start_button"><a href="#">Get Started</a></button></a>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="footer">
+        <!-- <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div> -->
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="#">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="#">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="#">Services</a></li>
+            <li class="menu_item"><a class="menu_link" href="#">Team</a></li>
+            <li class="menu_item"><a class="menu_link" href="#">Contact</a></li>
+
+        </ul>
+        <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+    </footer>
+<script src="delete-movie.js"></script>
+    <script src="./front.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script>
+        $(document).ready(function(){
+$('.disImg1').waypoint(function(Direction){
+        $('.disImg1').addClass('animate1');
+    },{offset:'80%'});
+   setTimeout(()=>{ $('.disHead1').waypoint(function(Direction){
+        $('.disHead1').addClass('animateHead1');
+    },{offset:'80%'});},2000)
+
+
+$('.disImg2').waypoint(function(Direction){
+        $('.disImg2').addClass('animate2');
+    },{offset:'80%'});
+    setTimeout(()=>{ $('.disHead2').waypoint(function(Direction){
+        $('.disHead2').addClass('animateHead2');
+    },{offset:'80%'});},2000)
+
+    
+    $('.disImg3').waypoint(function(Direction){
+        $('.disImg3').addClass('animate3');
+    },{offset:'80%'});
+    setTimeout(()=>{ $('.disHead3').waypoint(function(Direction){
+        $('.disHead3').addClass('animateHead3');
+    },{offset:'80%'});},2000)
+
+
+    $('.disImg4').waypoint(function(Direction){
+        $('.disImg4').addClass('animate4');
+    },{offset:'80%'});
+    setTimeout(()=>{ $('.disHead4').waypoint(function(Direction){
+        $('.disHead4').addClass('animateHead4');
+    },{offset:'80%'});},2000)
+
+
+    $('.disImg5').waypoint(function(Direction){
+        $('.disImg5').addClass('animate5');
+    },{offset:'80%'});
+    setTimeout(()=>{ $('.disHead5').waypoint(function(Direction){
+        $('.disHead5').addClass('animateHead5');
+    },{offset:'80%'});},2000)
+
+
+    $('.disImg6').waypoint(function(Direction){
+        $('.disImg6').addClass('animate6');
+    },{offset:'80%'});
+    setTimeout(()=>{ $('.disHead6').waypoint(function(Direction){
+        $('.disHead6').addClass('animateHead6');
+    },{offset:'80%'});},2000);
+
+    $('.animate').waypoint(function(Direction){
+        $('.animate').addClass('animateHead');
+    },{offset:'80%'});
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const emailForm = document.getElementById("emailForm");
+
+    // Prevent default form submission and handle via JavaScript
+    emailForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        
+        const emailInput = document.getElementById("email");
+        const email = emailInput.value.trim();
+
+        // Validate email
+        if (validateEmail(email)) {
+            // Make an AJAX request to submit the email
+            const formData = new FormData();
+            formData.append("email", email);
+
+            fetch("/submit-email", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to subscription page if email is successfully submitted
+                    window.location.href = `/subscription.html?email=${encodeURIComponent(email)}`;
+                } else {
+                    alert("There was an issue submitting your email.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            });
+        } else {
+            alert("Please enter a valid email address.");
+        }
+    });
+
+    // Simple email validation
+    function validateEmail(email) {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+});
+
+    </script>
+    
+</body>
+</html>

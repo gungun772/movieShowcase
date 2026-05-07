@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Showcase </title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="images/fav.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+    <style>
+        @media only screen and (max-width:1400px) {
+            * {
+                font-size: 1rem;
+            }
+            .navbar ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .details_tv {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 3000px;
+                width: 1250px;
+            }
+
+            /*.bo3{
+               margin-left:-30%;
+            }*/
+            .details_movie {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 3000px;
+                width: 1250px;
+            }
+
+            .details_sport {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 3000px;
+                width: 1250px;
+            }
+
+            .box {
+
+                height: 530px;
+            }
+
+            .login {
+                width: 1230px;
+                height: 450px;
+            }
+
+            .login_button {
+                /*margin-left:-30%;*/
+                margin-left: -30px;
+            }
+
+            /*.signin_button{
+                margin-left:-32%;
+             }*/
+            .reason {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reas2 {
+                margin-left: -25%;
+            }
+
+            .reas4 {
+                margin-left: -25%;
+            }
+
+            .reas1 {
+                margin-left: 20%;
+            }
+
+            .reas3 {
+                margin-left: 20%;
+            }
+
+            .contact {
+                margin-top: 30%;
+                width: 1250px;
+            }
+
+            .seac {
+                display: none;
+            }
+
+            .main_footer {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .first_p span {
+                display: none;
+            }
+
+            .movie_images {
+                width: 1250px;
+            }
+
+            .main_nav p span {
+                margin-right: -1px;
+                margin-right: 120px;
+            }
+
+            nav ul li {
+                margin-left: 10px;
+            }
+
+            .search_button {
+                margin-top: 15%;
+            }
+ 
+            .movie_images {
+                background-size: 100% 100%;
+            }
+
+            .box {
+                width: 400px;
+            }
+
+            .box_video {
+                width: 400px;
+            }
+
+            .details_movie {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 3000px;
+            }
+
+            .details_sport {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 3000px;
+            }
+
+            .reas {
+                margin-left: -8px;
+            }
+
+            /*.reason_img{
+                width:100px;
+                height:100px;
+            }*/
+            /*.img4{
+                margin-top:-13%;
+            }*/
+        }
+
+        @media only screen and (max-width:1000px) {
+            .details_tv {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                height: 6000px;
+                width: 873px;
+            }
+
+            .details_movie {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                height: 6000px;
+                width: 873px;
+            }
+
+            .details_sport {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                height: 6000px;
+                width: 873px;
+            }
+
+            .box {
+                margin-left: 30%;
+            }
+
+            .login {
+                width: 873px;
+            }
+
+            .reas1 {
+                margin-left: 5%;
+            }
+
+            .reas3 {
+                margin-left: 5%;
+            }
+
+            .contact {
+                width: 860px;
+            }
+
+            .movie_images {
+                width: 873px;
+                margin-top: -40%;
+            }
+
+            .signin_button {
+                margin-left: -5%;
+
+            }
+
+            .login_button {
+                margin-left: -10%;
+            }
+
+            .contact1 {
+                margin-left: -5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main_nav">
+        <img class="logo" src="https://static.vecteezy.com/system/resources/thumbnails/028/347/003/small/clapper-board-film-illustration-movie-cinema-object-icon-concept-movie-logo-movie-icon-video-logo-design-clapper-logo-design-free-png.png" alt="">
+        <p class="first_p" id="main">CineSequel</p>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/register"><i
+                        class="fa-solid fa-user"></i>Registration</a></li>
+            <li class="content part7 cont_p"><a href="/contact"><i
+                        class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="#tv_part"><a href="#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="#sports_part">Sports</a></li>
+                                <li class="sub_part"><a href="/front" target="_blank">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i
+                                class="fa-solid fa-user"></i>LogIn</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i
+                                class="fa-solid fa-address-book"></i>SignIn</a></li>
+                </ul>
+            </nav>
+            <div class="seac">
+                <label for="search"></label>
+                <input type="text" placeholder="Search Movie" id="search">
+                <button class="search_button"><a href="#">Search</a></button>
+                <div id="inputtext"></div>
+            </div>
+        </div>
+        <a href="#">
+            <div class="contact1">
+                <a href="#"><img class="con_img" src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
+                        alt="loading!!"></a>
+                <p class="con_para">Contact Us</p>
+            </div>
+        </a>
+    </div>
+    <div class="movie_images">
+    </div>
+    <h1 class="movie_head" id="tv_part">TV</h1>
+    <div class="details_tv">
+        <div class="box box1 slider">
+            <video src="howimeetyoumom.mp4" class="box_video" controls poster="tv_poster1.jpg"></video>
+            <h2 id="moviename1">HOW I MEET YOUR MOM</h2>   
+           <!-- <i class="fa-solid fa-video"></i> -->
+           <!-- <button class="watch_button"><a href="#"><i class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#" >+</a></button> -->
+            <button class="like_button"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows1"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para1"><p>The story is set in New York City. It is about a man named Ted Mosby who tells his son and daughter how
+                he met their mother. Ted is played by Josh Radnor and the story is narrated by Bob Saget who plays Ted
+                Mosby in the future year 2030.</p></div>
+        </div>
+        <div class="box box2 bo3 slider">
+            <video src="homeland.mp4" class="box_video" controls></video>
+            <h2>HOMELAND</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button2"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows2"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button2"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para2"><p>Homeland is an Emmy Award-winning thriller series that ran from 2011 to 2020 on Showtime. The show is
+                about a CIA officer and a decorated Marine Sergeant who navigate lies, suspicion, and desire.</p></div>
+        </div>
+        <div class="box box3 slider">
+            <video src="hart_di.mp4" class="box_video" controls poster="tv_poster3.jpg"></video>
+            <h2>HART DIXIE</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button3"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows3"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button3"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para3"><p>The series, created by Leila Gerstein, stars Rachel Bilson as Dr. Zoe Hart, a New Yorker who, after her
+                dreams of becoming a heart surgeon fall apart, accepts an offer to work as a general practitioner in the
+                fictional Gulf Coast town of Bluebell, Alabama. Hart of Dixie premiered on September 26, 2011.</p></div>
+        </div>
+        <div class="box box4 bo3 slider">
+            <video src="once.mp4" class="box_video" controls poster="tv_poster4.jpg"></video>
+            <h2>ONCE</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button4"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows4"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button4"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para4"> <p>On the other hand, the fifth-year students of the IAD have their heads focused not only on the
+                championship, but also on diagramming their career plan: it is their last year as students and each one
+                will have to discover what they want to do with their life.</p></div>
+        </div>
+        <div class="box box5 slider">
+            <video src="the_english.mp4" class="box_video" controls poster="tv_poster5.jpg"></video>
+            <h2>THE ENGLISH</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button5"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows5"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button5"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para5"><p>The English is a 2022 BBC and Amazon Prime Western miniseries about an Englishwoman who travels to the
+                American West in 1890 to seek revenge on the man she blames for her son's death. </p></div>
+        </div>
+        <div class="box box6 bo3 slider">
+            <video src="broke_girls.mp4" class="box_video" controls poster="tv_poster6.jpg"></video>
+            <h2>2 BROKE GIRLS</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button6"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows6"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button6"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para6"><p>2 Broke Girls is a comedy series about two young women who work as waitresses at a diner and develop an
+                unlikely friendship. The show ran from 2011-2017 and has 138 episodes over six seasons. </p></div>
+        </div>
+        <div class="box box7 bo1 slider">
+            <video src="suits.mp4" class="box_video" controls poster="tv_poster7.jpg"></video>
+            <h2>SUITS</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button7"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows7"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button7"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para7"><p>Suits is a comedy-drama TV series that ran from 2011 to 2019. The show is about a college dropout with a
+                photographic memory, Mike Ross (Patrick J. Adams), who works as an associate for a successful New York
+                City corporate lawyer, Harvey Specter (Gabriel Macht), even though he's never attended law school.</p></div>
+        </div>
+        <div class="box box8 bo1 bo3 slider">
+            <video src="prison_break.mp4" class="box_video" controls poster="tv_poster8.jpg"></video>
+            <h2>PRISON BREAK</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button8"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows8"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button8"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para8"> <p>Prison Break is a TV series that ran from 2005-2017 and is about two brothers, Lincoln Burrows (Dominic
+                Purcell) and Michael Scofield (Wentworth Miller), who are involved in a complex plan to break Lincoln
+                out of prison </p></div>
+        </div>
+        <div class="box box9 bo1 slider">
+            <video src="friends.mp4" class="box_video" controls poster="tv_poster9.webp"></video>
+            <h2>FRIENDS</h2>
+            <!-- <i class="fa-solid fa-video"></i> <button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button9"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows9"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button9"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para9"><p>Friends is a comedy-romance TV show that ran from 1994-2004 and follows the lives of six friends in their
+                20s and 30s living in New York City's Greenwich Village. The show was created by David Crane and Marta
+                Kauffman and stars Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, and David
+                Schwimmer</p></div>
+        </div>
+    </div>
+    <div class="first_btn">
+    <button id="goprev1"><img src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png" alt=""></button>
+    <button id="gonext1"><img src="https://w7.pngwing.com/pngs/320/708/png-transparent-arrow-computer-icons-next-button-blue-trademark-internet-thumbnail.png" alt=""></button></div>
+    <h1 class="movie_head head2" id="movie_part">MOVIES</h1>
+    <div class="details_movie">
+        <div class="box box11 bo slider1">
+            <video src="mongol2.mp4" class="box_video" controls poster="movie.jpg"></video>
+            <h2>MONGOL</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button10"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows10"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button10"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para10"> <p>Mongol is a 2008 film that tells the story of Genghis Khan's early life, from his birth in 1162 as
+                Temudgin to his rise as a legendary conqueror. The film is based on scholarly accounts and was directed
+                by Sergei Bodrov. It stars Tadanobu Asano as Temudgin, Sun Hong Lei as Jamukha, and Khulan Chuluun as
+                Borte.
+            </p></div>
+        </div>
+        <div class="box box12 bo bo3 slider1">
+            <video src="jumanji.mp4" class="box_video" controls poster="movie_poster2.jpg"></video>
+            <h2>JUMANJI</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button11"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows11"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button11"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para11"><p>umanji is a 1995 family fantasy action movie about a young boy who discovers a magical board game that
+                transports him to the jungles of Jumanji, where he remains for 26 years. Two children eventually free
+                him from the game's spell. The movie is based on an award-winning children's book and stars Robin
+                Williams, Kirsten Dunst, and Bonnie Hunt</p></div>
+        </div>
+        <div class="box box13 bo slider1">
+            <video src="avatar.mp4" class="box_video" controls poster="movie_poster3.webp"></video>
+            <h2>AVATAR</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#">Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button12"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows12"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button12"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para12"><p>Avatar is a 2009 action-adventure-fantasy film about a paraplegic Marine who travels to the alien planet
+                Pandora to take part in a program that explores and exploits the planet's resources. The film's title
+                refers to the genetically engineered human-Na'vi hybrids, called Avatars, that the humans use to
+                interact with the Na'vi</p></div>
+        </div>
+        <div class="box box14 bo3 slider1">
+            <video src="damsel.mp4" class="box_video" controls poster="movie_poster4.jpg"></video>
+            <h2>DAMSEL</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button13"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows13"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button13"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para13"> <p>Damsel is a 2024 American dark fantasy film about a young woman, Elodie (Millie Bobby Brown), who agrees
+                to marry a prince to save her people from death. However, she soon discovers that the prince has
+                ulterior motives and that she is being used as a sacrifice to a dragon to repay an ancient debt. Elodie
+                must then use her wits and bravery to survive and escape the cave where she is thrown with the dragon.
+            </p></div>
+        </div>
+        <div class="box box15 slider1">
+            <video src="warrior.mp4" class="box_video" controls poster="movie_poster5.jpg"></video>
+            <h2>THE KING WARRIOR</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button14"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows14"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button14"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para14"><p>Warrior King is a 2023 animated fantasy film about a young Chinese boy who is destined to become a great
+                king. The movie is based on the Chinese legend of King Gesar, which is considered a literary classic in
+                Central Asia. The story has been passed down through oral tradition for over 1,000 years and has been
+                adapted into literature, poetry, and stage plays.</p></div>
+        </div>
+        <div class="box box16 bo3 slider1">
+            <video src="civil_war.mp4" class="box_video" controls poster="movie3.jpg"></video>
+            <h2>CIVIL WAR</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button15"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows15"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button15"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para15"> <p>Civil War is a 2024 movie directed by Alex Garland that follows a group of journalists during a civil war
+                in the United States. The journalists, led by Kirsten Dunst's character Lee Smith, travel from New York
+                City to Washington, D.C. to interview the President before rebels take over the capital. Their journey
+                takes them through conflict zones and refugee camps, showing the human cost of the war.</p></div>
+        </div>
+        <div class="box box17 slider1">
+            <video src="curse.mp4" class="box_video" controls poster="movie_poster7.jpg"></video>
+            <h2>CURSE OF THE NUN</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button16"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows16"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button16"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para16"> <p>Curse of the Nun is a 2019 horror, mystery, and thriller film about a young woman who is looking forward
+                to moving to a new home, but the spirit of a deranged nun wants her to stay where she is. As the battle
+                wages on, we learn more of sister Catherine's sinister motivations and Anna's troubled past.</p></div>
+        </div>
+        <div class="box box18 bo3 slider1">
+            <video src="sinister.mp4" class="box_video" controls poster="movie_poster8.jpg"></video>
+            <h2>SINISTER</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button17"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows17"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button17"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para17"><p>Sinister is a 2012 horror, mystery, and thriller film about a true-crime writer who moves his family into
+                a house where a murder took place and discovers a box of Super 8 home movies that may be connected to
+                the case. The movie stars Ethan Hawke as Ellison Oswalt, a writer who's struggling to find success and
+                is desperate for a hit.</p></div>
+        </div>
+        <div class="box box19 slider1">
+            <video src="black_adam.mp4" class="box_video" controls poster="movie_poster9.jpg"></video>
+            <h2>BLACK ADAM</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button18"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows18"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button18"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para18"><p>Black Adam is a 2022 DC Extended Universe (DCEU) movie about an ancient superhuman who is freed from his
+                imprisonment to fight crime and protect the world</p></div>
+        </div>
+
+    </div>
+    <div class="first_btn1">
+        <button id="goprev2"><img src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png" alt=""></button>
+        <button id="gonext2"><img src="https://w7.pngwing.com/pngs/320/708/png-transparent-arrow-computer-icons-next-button-blue-trademark-internet-thumbnail.png" alt=""></button></div>
+    <h1 class="movie_head" id="sports_part">SPORTS</h1>
+    <div class="details_sport">
+
+        <div class="box box21 bo slider2">
+            <video src="big_shot.mp4" class="box_video" controls poster="sports1.jpg"></video>
+            <h2>BIG SHORT</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button19"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows19"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button19"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para19"><p>Big Shot is a Disney+ sports drama series that ran from 2021-2022. The show is about a college basketball
+                coach who is fired after a temper tantrum during a game that injures a referee. He then moves to
+                California to coach the girls' basketball team at Westbrook School, an elite all-girls private high
+                school. </p></div>
+        </div>
+        <div class="box box22 bo bo3 slider2">
+            <video src="english_game.mp4" class="box_video" controls poster="sports2.jpg"></video>
+            <h2>THE ENGLISH GAME</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button20"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows20"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button20"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para20"><p>Two 19th-century footballers on opposite sides of a class divide navigate professional and personal
+                turmoil to change the game — and England — forever. Watch all you want. This richly detailed ensemble
+                drama comes from "Downton Abbey" creator and "Gosford Park" writer Julian Fellowes.</p></div>
+        </div>
+        <div class="box box23 bo slider2">
+            <video src="sports_night.mp4" class="box_video" controls poster="sports_3.avif"></video>
+            <h2>SPORTS NIGHT</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button21"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows21"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button21"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para21"><p>Sports Night is an American sitcom that aired from 1998-2000 about the behind-the-scenes drama of a
+                fictional sports news show called Sports Night. The show follows the creative staff as they navigate
+                friendships, ethical issues, and network pressure while trying to produce a good show.</p></div>
+        </div>
+        <div class="box box24 bo3 slider2">
+            <video src="last_dance.mp4" class="box_video" controls poster="sports4.jpg"></video>
+            <h2>THE LAST DANCE</h2>
+            <!-- <i class="fa-solid fa-video"></i> <button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button22"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows22"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button22"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para22"><p>The Last Dance is a 10-part ESPN docuseries about the Chicago Bulls' final six championship seasons, with
+                a focus on Michael Jordan and his role in forming one of the greatest dynasties in basketball history.
+                The series includes behind-the-scenes footage that was kept under seal for 22 years.</p></div>
+        </div>
+        <div class="box box25 slider2">
+            <video src="ted_lasso.mp4" class="box_video" controls poster="sports_4.jpg"></video>
+            <h2>TED LASSO</h2>
+            <!-- <i class="fa-solid fa-video"></i> <button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button23"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows23"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button23"><i class="fa-solid fa-thumbs-down"></i></button><div class="imge"></div>
+            <div class="shows_para show_para23"><p>Ted Lasso is a comedy-drama series that ran from 2020-2023 on Apple TV+. The show follows Ted Lasso, an
+                American college football coach who is hired to manage AFC Richmond, a struggling English Premier League
+                soccer team. Ted has no experience with soccer, but his optimistic leadership and enthusiasm
+                unexpectedly lead to success.</p></div>
+        </div>
+        <div class="box box26 bo3 slider2">
+            <video src="swagger.mp4" class="box_video" controls poster="sports_6.jpg"></video>
+            <h2>SWAGGER</h2>
+            <!-- <i class="fa-solid fa-video"></i> <button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button24"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows24"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button24"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para24"> <p>Swagger is a TV series that explores the world of youth basketball, and the players, their families, and
+                coaches who navigate the fine line between dreams and ambition, and opportunism and corruption. The
+                series follows a basketball prodigy who must overcome the odds against him and learn what it truly means
+                to have swagger.</p></div>
+        </div>
+        <div class="box box27 bo2 slider2">
+            <video src="cricket.mp4" class="box_video" controls poster="sports7.jpg"></video>
+            <h2>CRICKET</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button25"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows25"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button25"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para25"> <p>Cricket is a team sport involving a bat and ball played between two teams of eleven players each. The
+                objective is to score more runs (points) than the opposing team. A match is divided into innings during
+                which one team bats, two batter at a time, and the other team bowls.</p></div>
+        </div>
+        <div class="box box28 bo2 bo3 slider2">
+            <video src="greatest_show.mp4" class="box_video" controls poster="sports8.jpg"></video>
+            <h2>THE GREAT SHOW ON EARTH</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button26"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows26"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button26"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para26"><p>The dramatic lives of trapeze artists, a clown, and an elephant trainer are told against a background of
+                circus spectacle. The dramatic lives of trapeze artists, a clown, and an elephant trainer are told
+                against a background of circus spectacle.</p></div>
+        </div>
+        <div class="box box29 bo2 slider2">
+            <video src="bookie.mp4" class="box_video" controls poster="sports9.avif"></video>
+            <h2>BOOKIE</h2>
+            <!-- <i class="fa-solid fa-video"></i><button class="watch_button"><a href="#"><i
+                        class="fa-solid fa-play"></i>Watch Now</a></button>
+            <button class="plus_button"><a href="#">+</a></button> -->
+            <button class="like_button like_button27"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="show show_button shows27"><i class="fa-solid fa-circle-info"></i></button>
+            <button class="dislike_button dislike_button27"><i class="fa-solid fa-thumbs-down"></i></button>
+            <div class="shows_para show_para27"><p>Follows a veteran bookie struggling to survive the impending legalization of sports gambling,
+                increasingly unstable clients, family and co-workers. The world's second oldest profession.</p></div>
+        </div>
+    </div>
+    <div class="first_btn2">
+        <button id="goprev3" class="prev1"><img src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png" alt=""></button>
+        <button id="gonext3" class="next1"><img src="https://w7.pngwing.com/pngs/320/708/png-transparent-arrow-computer-icons-next-button-blue-trademark-internet-thumbnail.png" alt=""></button></div>
+    
+    <!-- <div class="login">
+        <h2 class="login_name">Movie Mingle</h2>
+        <a href="#"><button class="login_button"><a href="login_page.html" target="_blank">LogIn</a></button></a>
+        <a href="#"><button class="signin_button">< a href="login_page.html" target="_blank">Sign In</a></button></a> -->
+        <!--<div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>-->
+        <!-- <h1 class="login_head">Unlimited movies,<span> TV shows and more</span></h1>
+        <p class="login_para">Ready to watch? Enter your email to create or restart your membership.</p>
+        <input type="email" placeholder="Email Address" class="email">
+        <a href="#"><button class="start_button"><a href="#">Get Started</a></button></a>
+    </div> -->
+
+
+
+    <div class="co">
+        <div class="actions-panel">
+             <h2 class="section-header" style="font-size:3.5rem; color:white;">Movie Actions</h2>
+             <p class="subtitle">Manage your movie collection with these tools</p>
+             <button id="addMovie"><a href="/addmovie" style="text-decoration: none; color:white;">Add Movie</a></button>
+             <button id="updateMovie"><a href="/updatemovie" style="text-decoration: none; color:white;">Update Movie</a></button>
+             <button id="deleteMovie">Delete Movie</button>
+         </div>
+         <div id="movies-container">
+             <h2 class="section-header">Your Movie Collection</h2>
+             <ul id="movies-list"></ul>
+             <div id="empty-state" class="empty-state" style="display: none;">
+                 <i>📽️</i>
+                 <h3>Your collection is empty</h3>
+                 <p>No movies in your collection yet. Add your first movie using the Add Movie button above!</p>
+             </div>
+         </div>
+     </div>
+
+
+    <h1>More Reasons To Join</h1>
+    <div class="reason">
+        <div class="reas reas1">
+            <h2 class="reason_head">Enjoy on your tv</h2>
+            <p class="reason_para">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and
+                more.</p>
+            <img class="reason_img" src="Television.gif" alt="Loading!!..">
+        </div>
+        <div class="reas reas2">
+            <h2 class="reason_head">Download your shows to watch offline</h2>
+            <p class="reason_para">Save your favourites easily and always have something to watch.</p>
+            <img class="reason_img" src="downloading.gif" alt="Loading!!..">
+        </div>
+        <div class="reas reas3">
+            <h2 class="reason_head">Watch everywhere</h2>
+            <p class="reason_para">Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+            <img class="reason_img" src="telescope.gif" alt="Loading!!..">
+        </div>
+        <div class="reas reas4">
+            <h2 class="reason_head">Create profiles for kids</h2>
+            <p class="reason_para">Send kids on adventures with their favourite characters in a space made just for them
+                — free with your membership.</p>
+            <img class="reason_img img4" src="creativity.gif" alt="Loading!!..">
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact_start">
+            <h1>Get in touch</h1>
+            <p>Want to get in touch? We'd love to hear from you. Here's how yu can reach us....</p>
+        </div>
+        <div class="contact_list">
+            <div class="cont_list cont_list1">
+                <i class="fa-solid fa-phone cont_icon"></i>
+                <h2 class="cont_head1">Talk to sales</h2>
+                <p class="p1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, incidunt? Pariatur,
+                    cum.</p>
+                <a href="#">+353 1 512 4400</a>
+            </div>
+            <div class="cont_list cont_list2">
+                <i class="fa-solid fa-message cont_icon1"></i>
+                <h2 class="cont_head">Contact Customer<span>Support</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate dolor rerum magnam unde
+                    sequi deserunt, impedit atque delectus cumque numquam animi placeat!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="color:rgb(191, 190, 190); margin-top:30px;">Questions? Call 000-800-919-1694</p>
+        <div class="main_footer">
+            <div class="footer_div">
+                <ul>
+                    <li class="footer_list"><a href="#">FAQ</a></li>
+                    <li class="footer_list"><a href="#">Investor Relations</a></li>
+                    <li class="footer_list"><a href="#">Privacy</a></li>
+                    <li class="footer_list"><a href="#">Speed Test</a></li>
+                </ul>
+            </div>
+            <div class="footer_div f_div1">
+                <ul>
+                    <li class="footer_list"><a href="#">Help Centers</a></li>
+                    <li class="footer_list"><a href="#">Jobs</a></li>
+                    <li class="footer_list"><a href="#">Cookie Prefrences</a></li>
+                    <li class="footer_list"><a href="#">Legal Notices</a></li>
+                </ul>
+            </div>
+            <div class="footer_div">
+                <ul>
+                    <li class="footer_list"><a href="#">Account</a></li>
+                    <li class="footer_list"><a href="#">Ways to Watch</a></li>
+                    <li class="footer_list"><a href="#">Corporate Information</a></li>
+                    <li class="footer_list"><a href="#">Only on MovieMingle</a></li>
+                </ul>
+            </div>
+            <div class="footer_div f_div1">
+                <ul>
+                    <li class="footer_list"><a href="#">Media Center</a></li>
+                    <li class="footer_list"><a href="#">Terms of Us</a></li>
+                    <li class="footer_list"><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <h3>FOLLOW US ON:</h3>
+        <div class="follow">
+            <a href="#"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwH--J-ZMUg8puNfUxE6YXQi3yVHuAORDxow&s"
+                    alt="" class="footer_img"></a>
+            <a href="#"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4uLXVt448bgmcNF6qjjBjiIs38o7fNVbDg&s"
+                    alt="" class="footer_img"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="" class="footer_img"></a>
+            <a href="#"><img src="https://cdn-icons-png.freepik.com/256/15707/15707884.png?semt=ais_hybrid" alt=""
+                    class="footer_img"></a>
+        </div>
+    </div>
+    <p class="last_p">&copy; 2021 National coelho | All Rights Reserved </p>
+    <script src="frontpage.js"></script>
+    <script>
+        const movieName = document.getElementById('moviename1'); 
+function handleButtonClick(buttonType) {
+    fetch(`/updateVote`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ buttonType: buttonType, movieName: movieName.textContent.trim() }), 
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+document.querySelector('.like_button').addEventListener('click', function() {
+    handleButtonClick('like');
+});
+
+document.querySelector('.dislike_button').addEventListener('click', function() {
+    handleButtonClick('dislike');
+});
+
+
+
+  async function fetchMovies() {
+    try {
+      const response = await fetch('http://localhost:3000/addition');
+      const movies = await response.json();
+
+      const moviesList = document.getElementById('movies-list');
+      const emptyState = document.getElementById('empty-state');
+
+      moviesList.innerHTML = ''; // Clear old items
+
+      if (movies.length === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+
+        movies.forEach(movie => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <div style="padding: 10px; border-bottom: 1px solid #555;">
+              <h3 style="margin: 0; color: #f44336;">${movie.title} (${movie.year})</h3>
+              <p><strong>Director:</strong> ${movie.director}</p>
+              <p><strong>Genre:</strong> ${movie.genre}</p>
+              <p><strong>Rating:</strong> ${movie.rating}/10</p>
+              <p>${movie.description}</p>
+            </div>
+          `;
+          moviesList.appendChild(li);
+        });
+      }
+    } catch (error) {
+      console.error('Failed to fetch movies:', error);
+      alert('Could not load movies. Please try again later.');
+    }
+  }
+
+  // Fetch movies when page loads
+  window.addEventListener('DOMContentLoaded', fetchMovies);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,975 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display-swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    overflow-x:hidden;
+}
+.main_nav{
+    background-color: transparent;
+width: 100%;
+height:150px;
+
+box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.navbar nav{
+    margin-top:30px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    transition:color 1s linear;
+    font-size:1.3rem;
+}
+.part1{
+    border-radius:10px;
+    width:95px;
+    text-align: center;
+    color:black;
+    background-color: white;
+}
+.part1 a{
+    color:black;
+}
+.part1:hover{
+    background-color:black;
+}
+.main_nav .first_p{
+    font-size:4rem;
+    font-weight: bold;
+    color:white;
+    margin-left:80px;
+}
+.main_nav .first_p span{
+    font-size:1.5rem;
+    margin-left:2%;
+    font-weight:lighter;
+    margin-right: 48%;
+}
+.first_p span{
+    border-right:2px solid white;
+    border-left:2px solid white;
+    border-radius:5px;
+}
+nav ul {
+    display:flex;
+    gap:50px;
+    margin-top:10px;
+}
+nav ul li{
+    list-style-type: none;
+    margin-left:10px;
+}
+i{
+    margin-right:5px;
+}
+nav ul li a:hover{
+    color:bisque;
+}
+#search{
+    width:140px;
+    height: 30px;
+    font-size: 1.2rem;
+    border-radius:5px;
+    background-color: transparent;
+    color:white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.seac{
+    float:right;
+    margin-top:-27px;
+}
+.search_button a{
+    text-decoration:none;
+    color:white;
+}
+.search_button{
+    width:70px;
+    height: 25px;
+    font-size: 1.2rem;
+    background-color: transparent;
+}
+.search_button:hover{
+    background-color:#6f0000;
+}
+.sub-menu{
+    display: none;
+    background-color:rgba(0,0,0,0.5);
+}
+.sub-menu ul li{
+    border-bottom:2px solid white;
+    margin-right:10px;
+    text-align: center;
+   
+}
+.sub-menu ul{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+}
+nav ul .part5:hover .sub-menu{
+    display:block;
+    position:absolute;
+}
+.img_show{
+    overflow:hidden;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    background-image: url('https://www.wallpaperflare.com/static/181/217/292/dark-female-anime-character-wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+.img_show1{
+    /* border:2px solid white; */
+    width:500px;
+    height:743px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    overflow:hidden;
+}
+.img_show2{
+    /* border:2px solid white; */
+    width:500px;
+    height:743px;
+    display:grid;
+    overflow:hidden;
+}
+.img_show3{
+    /* border:2px solid white; */
+    width:600px;
+    height:743px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    overflow:hidden;
+    margin-left:-10%;
+}
+
+
+.show{
+    width:200px;
+    height: 300px;
+}
+
+
+.mian_nav{
+    position: relative; /* This makes sure the navbar is positioned correctly */
+    z-index: 1;
+    padding: 20px;
+}
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    width: 100%;
+    margin-top:10%;
+
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.hero-content{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.email-form input {
+    padding: 15px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.email-form button {
+    padding: 15px 30px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.email-form button:hover {
+    background-color: #ff0a16;
+}
+.front{
+    width:100%;
+    height:100%;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    height: 100vh; /* Full viewport height */
+    overflow-x: hidden;
+    
+    position: absolute; /* Position it absolutely within the parent container */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:-1;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     }
+
+
+
+/*login page*/
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+    transition: 2.5s;
+    transform: scale(0.3);
+    margin-top:5%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+/* section.show-animate {
+    transform: scale(1.1);
+} */
+
+/* Modal CSS */
+#login {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#logintwo {
+    margin-bottom: 2%;
+    margin-top:20%;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    color: black;
+    transition: all 0.3s;
+    position: relative;
+    margin-left:-1%;
+}
+
+/* .btn span {
+    transition: all 0.5s;
+} */
+
+#logintwo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Changed to full width */
+    height: 100%;
+    z-index: 1;
+    opacity: 0.8;
+    transition: all 0.5s;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    /* Correct border property */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* Correct border property */
+    /* transform: scale(0.1, 1); */
+}
+
+#logintwo:hover span {
+    letter-spacing: 2px;
+}
+
+#logintwo:hover::before {
+    opacity: 1;
+    /* Make the borders visible on hover */
+    transform: scale(1, 1);
+    /* Expand the borders */
+}
+
+#logintwo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    background-color: rgba(65, 61, 61, 0.1);
+}
+
+#logintwo:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+#logintwo:hover span::after {
+    border-top: 1px solid green;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    /* width: 300px; */
+    text-align: center;
+    height: 600px;
+    width: 1250px;
+    display: flex;
+
+}
+
+.modal {
+    border: 2px solid gray;
+    height: 300px;
+    width: 300px;
+    left: 10;
+    top: 10;
+    padding: 20px;
+}
+
+.close {
+    float:right;
+
+    color: black;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.welcome {
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    background: linear-gradient(to right, #4286f4, #373B44);
+    text-align: left;
+    margin-left: 150px;
+    margin-top: -200px;
+    padding-left: 150px;
+    padding: 20px;
+    height: 600px;
+    width: 400px;
+}
+
+#sign {
+    font-size: 15px;
+    border: 2px solid white;
+    width: 200px;
+    height: 40px;
+    border-radius: 100px;
+    margin-left: 70px;
+    cursor: pointer;
+    padding-right:25px;
+}
+
+.welcome h1,
+h4,
+button#sign {
+    padding-left: 50px;
+}
+
+#page2 {
+    background-color: #fff;
+    /* text-align: left; */
+    margin-left: 0px;
+    margin-top: -200px;
+    padding-left: 150px;
+    padding: 20px;
+    height: 600px;
+    width: 550px;
+}
+
+#page2 h1 {
+    color: #373B44;
+}
+
+#page2 h4 {
+    color: lightgray;
+}
+#page2 input{
+    padding:15px;
+    height:40px;
+    width:400px;
+    margin-left:20px;
+    border:1px solid black;
+    border-radius: 100px;
+}
+#create{
+    height:40px;
+    width:200px;
+    border:1px solid #fff;
+    border-radius: 100px;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    background: linear-gradient(to right, #4286f4, #373B44);
+    cursor: pointer;
+}
+.Login{
+    margin-top:-10%;
+    
+}
+
+/* sliding movies */
+
+/* General Styles */
+
+
+
+.movieDis{
+    margin-top:45%;
+    overflow:hidden;
+background-attachment: fixed;
+}
+
+/*1st movies discription*/
+.dis1{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:700px;
+    height:400px;
+    color:white;
+    margin-left:2%;
+}
+.Img{
+    width:550px;
+    height:350px;
+}
+.disHead1{
+    width:300px;
+    margin-top:50%;
+}
+
+/*2nd movie discription*/
+.dis2{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:750px;
+    height:400px;
+    color:white;
+    margin-left:50%;
+}
+.disHead2{
+    width:300px;
+    margin-top:50%;
+    margin-left:-30%;
+}
+.Img2{
+    margin-left:-20%;
+    
+}
+
+/*3rd movie discription*/
+.dis3{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:700px;
+    height:400px;
+    color:white;
+    margin-left:2%;
+}
+.disHead3{
+    width:300px;
+    margin-top:50%;
+}
+
+/*4th movie discription*/
+.dis4{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:750px;
+    height:400px;
+    color:white;
+    margin-left:50%;
+}
+.disHead4{
+    width:300px;
+    margin-top:50%;
+    margin-left:-30%
+}
+.Img4{
+    margin-left:-20%;
+}
+
+/*5th movie discription*/
+.dis5{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:700px;
+    height:400px;
+    color:white;
+    margin-left:2%;
+}
+.disHead5{
+    width:300px;
+    margin-top:50%;
+}
+
+/*6th movie discription*/
+.dis6{
+    /* border:2px solid white; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    width:750px;
+    height:400px;
+    color:white;
+    margin-left:50%;
+}
+.disHead6{
+    width:300px;
+    margin-top:50%;
+    margin-left:-30%
+}
+.Img6{
+    margin-left:-20%;
+}
+
+.disImg1{
+    opacity:0;
+    transition:all 2s linear;
+    margin-left:-100%;
+}
+.disImg1.animate1{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead1{
+    opacity:0;
+    margin-left:-295%;
+    transition:all 2s linear;
+}
+.disHead1.animateHead1{
+    opacity:1;
+    margin-left:0%;
+}
+.head{
+    color:white;
+    font-size:1.5rem;
+}
+
+.disImg2{
+    opacity:0;
+    transition:all 2s linear;
+    margin-left:90%;
+}
+.disImg2.animate2{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead2{
+    opacity:0;
+    margin-left:255%;
+    transition:all 2s linear;
+}
+.disHead2.animateHead2{
+    opacity:1;
+    margin-left:-30%;
+}
+
+.disImg3{
+    opacity:0;
+    transition:all 2s linear;
+    margin-left:-100%;
+}
+.disImg3.animate3{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead3{
+    opacity:0;
+    margin-left:-295%;
+    transition:all 2s linear;
+}
+.disHead3.animateHead3{
+    opacity:1;
+    margin-left:0%;
+}
+
+.disImg4{
+    /* opacity:0; */
+    transition:all 2s linear;
+    margin-left:90%;
+}
+.disImg4.animate4{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead4{
+    opacity:0;
+    margin-left:255%;
+    transition:all 2s linear;
+}
+.disHead4.animateHead4{
+    opacity:1;
+    margin-left:-30%;
+}
+
+.disImg5{
+    opacity:0;
+    transition:all 2s linear;
+    margin-left:-100%;
+}
+.disImg5.animate5{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead5{
+    opacity:0;
+    margin-left:-295%;
+    transition:all 2s linear;
+}
+.disHead5.animateHead5{
+    opacity:1;
+    margin-left:0%;
+}
+
+.disImg6{
+    /* opacity:0; */
+    transition:all 2s linear;
+    margin-left:90%;
+}
+.disImg6.animate6{
+    opacity:1;
+    margin-left:0%;
+}
+.disHead6{
+    opacity:0;
+    margin-left:255%;
+    transition:all 2s linear;
+}
+.disHead6.animateHead6{
+    opacity:1;
+    margin-left:-30%;
+}
+.animate{
+    opacity:0;
+    transition:0;
+    transition:all 2s linear;
+}
+.animate.animateHead{
+    opacity:1;
+    transform:scale(2.5);
+}
+
+.head{
+    font-size: 2.5rem;
+    margin-left:5%;
+}
+
+
+
+/* footer part */
+.footer {
+    margin-top: 120px;
+    position: relative;
+    width: 100%;
+/* 
+    background: #2C3E50;  
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50); 
+    background: linear-gradient(to right, #4CA1AF, #2C3E50);  */
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+   .social-icon,
+  .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  } 
+  
+ .social-icon__item,
+  .menu__item {
+    list-style: none;
+  }
+  /*
+  .social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+  }
+  .social-icon__link:hover {
+    transform: translateY(-10px);
+  } */
+  
+  .menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    /* background: #2C3E50;  
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50); 
+    background: linear-gradient(to right, #4CA1AF, #2C3E50);  */
+    
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  
+  .menu__link:hover {
+    opacity: 1;
+  }
+  .footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  .wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+     background: url("https://i.ibb.co/wQZVxxk/wave.png"); 
+    background-size: 1000px 100px;
+  }
+  
+  .wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
+  }
+  
+  .wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animate 4s linear infinite ;
+  }
+  
+  .wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
+  }
+  
+  .wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
+  }
+  @keyframes animateWaves {
+    0% {
+      background-position-x: 1000px;
+    }
+    100% {
+      background-positon-x: 0px;
+    }
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position-x: -1000px;
+    }
+    100% {
+      background-positon-x: 0px;
+    }
+  }
+  .menu_link{
+    text-decoration:none;
+    color:black;
+    margin:10px;
+    font-size:1.5rem;
+  }
+  .menu_item{
+list-style: none;
+  }
+  .menu_link:hover{
+    color:white;
+    text-decoration: underline;
+  }
+
+  .aboutImg{
+    width:100px;
+    height:100px;
+    display:inline-block;
+    margin-left:20px;
+  }
+  .head{
+    display:inline-block;
+    margin-left:-2px;
+  }
+
+  .downImg{
+    width:200px;
+    height:200px;
+    
+  }
+  .down{
+ 
+    width:100px;
+    height:100px;
+    margin-top:-20%;
+    margin-left:43%;
+  }
+  .nav_btn{
+    background-color: black;
+  }
+
+/* movie management */
+
+header {
+    background-color: #e50929; /* Netflix red */
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.login{
+    width:100%;
+    height:500px;
+    background: #200122;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius:100% 0% 100% 0% / 0% 0% 100% 100% ;
+background-attachment: fixed;
+}
+.login_name{
+    font-size:3rem;
+    display:inline-block;
+    color:white;
+    margin-left:10px;
+    margin-top:10px;
+    text-shadow: -11px 9px 5px rgba(0,0,0,0.52);
+}
+.signin_button{
+    position:absolute;
+    margin-top:20px;
+    left:90%;
+    height: 30px;
+    color:white;
+    background-color: rgb(110, 58, 58);
+    width:100px;
+    font-size:1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.signin_button a{
+    text-decoration: none;
+    color:white;
+}
+.login_head{
+    margin-left:33%;
+    margin-top:4%;
+}
+.login_head span{
+    display:block;
+    margin-left:-2%;
+}
+.login_para{
+    color:white;
+    margin-left:30%;
+    margin-top:3%;
+}
+.email{
+    display:block;
+    font-size:1.2rem;
+    width:450px;
+    height:40px;
+    margin-left:30%;
+    background-color:black;
+    border-color:gray;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    color:white;
+}
+.start_button{
+    font-size:1.2rem;
+    margin-left:40%;
+    margin-top:2%;
+    background-color: red;
+    color:white;
+    border-radius:10px;
+    width:150px;
+    height:50px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.start_button a{
+    text-decoration: none;
+    color:white; 
+}
+.login_button{
+    position:absolute;
+    margin-top:20px;
+    left:80%;
+    height: 30px;
+    color:white;
+    background-color: rgb(110, 58, 58);
+    width:110px;
+    font-size:1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.login_button a{
+    text-decoration: none;
+    color:white;
+}
+

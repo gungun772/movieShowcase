@@ -1,0 +1,83 @@
+var modal = document.getElementById("login");
+var button = document.getElementById("logintwo");
+var closes = document.getElementsByClassName("close")[0];
+var bodies=document.body;
+function modal_show(){
+    modal.style.display = "block";
+};
+
+button.addEventListener("click",modal_show);
+
+closes.onclick = function() {
+    modal.style.display = "none";
+};
+
+// Close modal when clicking outside the modal content
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+let emailValue=document.getElementById("email");
+let numberValue=document.getElementById("number");
+let passwordValue=document.getElementById("password");
+let signBtn=document.querySelector(".sign_button");
+const getlist=()=>{
+    return JSON.parse(localStorage.getItem("email"));
+}
+const getlist1=()=>{
+    return JSON.parse(localStorage.getItem("mobile"));
+}
+const getlist2=()=>{
+    return JSON.parse(localStorage.getItem("password"));
+}
+let localValueEmail=getlist() || [];
+let localValuemobile=getlist1() || [];
+let localValuePassword=getlist2()|| [];
+let valuefilled=()=>{
+    localValueEmail.push(emailValue.value.trim());
+    localValuemobile.push(numberValue.value.trim());
+    localValuePassword.push(passwordValue.value.trim());
+    localValueEmail=[...new Set(localValueEmail)];
+    localValuemobile=[...new Set(localValuemobile)];
+    localValuePassword=[...new Set(localValuePassword)];
+     localStorage.setItem("email",JSON.stringify(localValueEmail));
+     localStorage.setItem("mobile",JSON.stringify(localValuemobile));
+     localStorage.setItem("password",JSON.stringify(localValuePassword));
+     window.location="home.html";
+}
+signBtn.addEventListener("click",valuefilled);
+
+
+
+
+
+document.getElementById('login-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+    const email = document.getElementById('email').value;
+    const number = document.getElementById('number').value;
+    const password = document.getElementById('password').value;
+    const userData = {
+        email: email,
+        number: number,
+        password: password
+    };
+    try {
+        const response = await fetch('/create-account', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+        const result = await response.json();
+        if (response.ok) {
+            alert('Account created successfully!');
+        } else {
+            alert('Error creating account: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again later.');
+    }
+});

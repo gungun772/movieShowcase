@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Movie</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #222; /* Dark background for a modern look */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff; /* White text for contrast */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    background-color: #333; /* Dark gray background for container */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+h2.section-header {
+    font-size: 2rem;
+    text-align: center;
+    color: #f44336; /* Red header */
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #e0e0e0; /* Light gray subtitle */
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Form Styles */
+.form-container {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    color: #fff; /* White labels */
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Dark border for inputs */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    background-color: #222; /* Dark background for inputs */
+    color: #fff; /* White text in input fields */
+}
+
+input:focus, textarea:focus {
+    border-color: #f44336; /* Red border on focus */
+    outline: none;
+}
+
+/* Button Styles */
+.button {
+    background-color: #f44336; /* Red button background */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Movie Details Form */
+.movie-details {
+    margin-top: 40px;
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #444; /* Dark border between sections */
+}
+
+.movie-details h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.movie-details textarea {
+    height: 120px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#searchMovieButton {
+    background-color: #f44336; /* Red background for the search button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#searchMovieButton:hover {
+    background-color: #d32f2f;
+}
+    </style> <!-- Optional, for styling -->
+</head>
+<body>
+    <div class="container">
+        <h2>Update Movie</h2>
+        <form id="updateMovieForm">
+            <label for="movieTitle">Enter Movie Title:</label>
+            <input type="text" id="movieTitle" name="movieTitle" required>
+            <button type="button" id="searchMovieButton">Search Movie</button>
+        </form>
+
+        <div id="movieDetails" style="display:none;">
+            <h3>Update Movie Details</h3>
+            <form id="updateMovieDetailsForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" required>
+
+                <label for="director">Director:</label>
+                <input type="text" id="director" name="director" required>
+
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required>
+
+                <label for="rating">Rating (1-10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Update Movie</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle the search movie process
+document.getElementById("searchMovieButton").addEventListener("click", async function(event) {
+    event.preventDefault();  // Prevent the form from submitting normally
+
+    const movieTitle = document.getElementById("movieTitle").value.trim();
+    if (!movieTitle) {
+        alert("Please enter a movie title to search.");
+        return;
+    }
+
+    try {
+        // Send GET request to fetch the movie details by title
+        const response = await fetch(`http://localhost:3000/addition/search?q=${movieTitle}`);
+
+        if (!response.ok) {
+            throw new Error('Movie not found');
+        }
+
+        const movie = await response.json();
+
+        // Populate the form with movie details
+        document.getElementById("movieDetails").style.display = "block";
+        document.getElementById("title").value = movie.title;
+        document.getElementById("year").value = movie.year;
+        document.getElementById("director").value = movie.director;
+        document.getElementById("genre").value = movie.genre;
+        document.getElementById("rating").value = movie.rating;
+        document.getElementById("description").value = movie.description;
+
+    } catch (error) {
+        alert("Error fetching movie details: " + error.message);
+    }
+});
+
+// Handle the movie update form submission
+document.getElementById("updateMovieDetailsForm").addEventListener("submit", async function(event) {
+    event.preventDefault();  // Prevent form from submitting normally
+
+    const updatedMovie = {
+        title: document.getElementById("title").value.trim(),
+        year: parseInt(document.getElementById("year").value.trim(), 10),
+        director: document.getElementById("director").value.trim(),
+        genre: document.getElementById("genre").value.trim(),
+        rating: parseFloat(document.getElementById("rating").value.trim()),
+        description: document.getElementById("description").value.trim(),
+    };
+
+    try {
+        // Send PUT request to update the movie on the server
+        const response = await fetch(`http://localhost:3000/addition/${encodeURIComponent(updatedMovie.title)}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedMovie)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert(result.message);  // Show success message
+            window.location.href = '/front'; // Redirect to the main page after success
+        } else {
+            alert(result.error || 'Error updating movie');
+        }
+
+    } catch (error) {
+        alert('Error updating movie. Please try again.');
+        console.error('Error:', error);
+    }
+});
+
+    </script> <!-- External JS file -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Website QR Code</title>
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #ff1a1a;
+      margin-bottom: 20px;
+    }
+
+    #qrcode {
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Scan to Visit Our Website</h1>
+  <div id="qrcode"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    const websiteURL = "https://yourdomain.com"; // Replace with your actual domain
+    const qrContainer = document.getElementById("qrcode");
+
+    QRCode.toCanvas(websiteURL, { width: 200 }, function (err, canvas) {
+      if (err) console.error(err);
+      qrContainer.appendChild(canvas);
+    });
+  </script>
+
+</body>
+</html>

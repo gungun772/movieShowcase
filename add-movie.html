@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #222; /* Dark background for a modern look */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff; /* White text for contrast */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    background-color: #333; /* Dark gray background for container */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+h2.section-header {
+    font-size: 2rem;
+    text-align: center;
+    color: #f44336; /* Red header */
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #e0e0e0; /* Light gray subtitle */
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Add Movie Form Styles */
+.form-container {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    color: #fff; /* White labels */
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Dark border for inputs */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    background-color: #222; /* Dark background for inputs */
+    color: #fff; /* White text in input fields */
+}
+
+input:focus, textarea:focus {
+    border-color: #f44336; /* Red border on focus */
+    outline: none;
+}
+
+/* Button Styles */
+.button {
+    background-color: #f44336; /* Red button background */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Movie Details Form */
+.movie-details {
+    margin-top: 40px;
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #444; /* Dark border between sections */
+}
+
+.movie-details h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.movie-details textarea {
+    height: 120px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style><!-- Optional, for styling -->
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add a New Movie</h2>
+        <form id="addMovieForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+
+            <label for="director">Director:</label>
+            <input type="text" id="director" name="director" required>
+
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" required>
+
+            <label for="rating">Rating (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit">Add Movie</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('addMovieForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    // Collect the form data
+    const movieData = {
+        title: document.getElementById('title').value.trim(),
+        year: parseInt(document.getElementById('year').value.trim(), 10),
+        director: document.getElementById('director').value.trim(),
+        genre: document.getElementById('genre').value.trim(),
+        rating: parseFloat(document.getElementById('rating').value.trim()),
+        description: document.getElementById('description').value.trim()
+    };
+
+    try {
+        // Send POST request to the server to add the movie
+        const response = await fetch('http://localhost:3000/addition', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movieData) // Send the movie data as JSON
+        });
+
+        const result = await response.json(); // Parse the JSON response
+
+        if (response.ok) {
+            alert(result.message);  // Show success message
+            window.location.href = '/home'; // Redirect to main page or wherever you want after success
+        } else {
+            alert(result.error || 'Error adding movie');
+        }
+
+    } catch (error) {
+        alert('Error adding movie. Please try again.');
+        console.error('Error:', error);
+    }
+});
+
+    </script> <!-- External JS file -->
+</body>
+</html>

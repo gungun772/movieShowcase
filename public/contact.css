@@ -1,0 +1,89 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.contact_div{
+    background-image: url('https://img.freepik.com/premium-photo/film-crew-is-setting-up-shot-dark-moody-room-room-is-lit-by-single-spotlight-which-is-casting-shadows-walls-floor_14117-256747.jpg');
+    background-size:cover;
+    width:100%;
+    height:750px;
+}
+h1{
+    color:white;
+    margin-left:23%;
+}
+.contact_start{
+    position:absolute;
+    left:50%;
+    top: 18%;
+    width:650px;
+    height:570px;
+    background-color: rgba(0,0,0,0.8);
+}
+.name{
+    display:flex;
+    margin-top:5%;
+}
+.input-group{
+    margin:10px;
+}
+.contact_email{
+    display:flex;
+    margin-top:3%;
+}
+.mb-3{
+    margin:10px;
+    width:400px;  
+}
+.mb-2{
+    height:60px; 
+}
+.area{
+    margin-top:3%;
+    width:95%;
+    height:100px;
+    margin-left:10px;
+}
+.text_area{
+    height:140px;
+}
+button{
+    width:80px;
+    height:40px;
+}
+.contact_send{
+    margin-top:9%;
+    margin-left:10px;
+    height:40px;
+}
+.c_head{
+    margin-top:3%;
+}
+.c_name{
+    border-bottom: 2px solid white;
+    height:60px; 
+    border-width: 4px;
+    border-radius:5px;
+}
+.c_name1{
+    border-bottom: 2px solid white;
+    height:140px;
+    border-width: 4px;
+    border-radius:5px;
+}
+.button{
+    width:85px;
+    height:40px;
+    border-radius:10px;
+}
+.map{
+    position:absolute;
+    top:18%;
+    left:4%;
+    height:570px;
+}
+.contact_map{
+    height:570px;
+    width:600px;
+}
