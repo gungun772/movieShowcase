@@ -60,7 +60,8 @@ The project also includes administrative functionality for managing movie and us
 ## 🏗️ System Architecture
 
 The project follows a client-server architecture.
-text
+
+```text
                    ┌───────────────────┐
                    │       User        │
                    └─────────┬─────────┘
@@ -68,7 +69,7 @@ text
                              ▼
                    ┌───────────────────┐
                    │     Frontend      │
-                   │ HTML / CSS / JS   │
+                   │   HTML / CSS / JS │
                    └─────────┬─────────┘
                              │
                        HTTP Requests
@@ -76,7 +77,7 @@ text
                              ▼
                    ┌───────────────────┐
                    │   Express Server  │
-                   │ Node.js Backend   │
+                   │   Node.js Backend │
                    └─────────┬─────────┘
                              │
                  ┌───────────┴───────────┐
@@ -86,9 +87,13 @@ text
         │     MongoDB     │     │   JSON Files    │
         │    Mongoose     │     │                 │
         └─────────────────┘     └─────────────────┘
+```
 
+---
 
+## 📁 Project Structure
 
+```text
 movieShowcase/
 │
 ├── images/
@@ -101,64 +106,52 @@ movieShowcase/
 │   └── Profile-related resources
 │
 ├── front.html
-│   └── Front/landing page
-│
 ├── home.html
-│   └── Main home page
-│
 ├── admin.html
-│   └── Administrative interface
-│
 ├── login_page.html
-│   └── Login page
-│
 ├── signin.html
-│   └── Sign-in interface
-│
 ├── register.html
-│   └── User registration page
-│
 ├── add-movie.html
-│   └── Interface for adding movies
-│
 ├── update-movie.html
-│   └── Interface for updating movies
-│
 ├── contact.html
-│   └── Contact page
-│
 ├── subscribtion.html
-│   └── Subscription page
 │
 ├── register.js
-│   └── Registration-related JavaScript
-│
 ├── qrcode.js
-│   └── QR code functionality
-│
 ├── qrcode.css
-│   └── QR code styling
 │
 ├── projectbackend.js
-│   └── Main Node.js/Express backend
 │
 ├── movies.json
-│   └── Movie data
-│
 ├── users.json
-│   └── User data
-│
 ├── likes.json
-│   └── Like/dislike data
-│
 ├── contact_data.json
-│   └── Contact form data
 │
 ├── package.json
-│   └── Project dependencies and scripts
-│
 ├── package-lock.json
-│   └── Dependency lock file
 │
-└── README.md
-    └── Project documentation
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🔄 Data Flow
+
+```text
+User
+  ↓
+Frontend
+  ↓
+HTTP Request
+  ↓
+Express.js API
+  ↓
+Backend Processing
+  ↓
+MongoDB / JSON Data
+  ↓
+HTTP Response
+  ↓
+Frontend
+```
