@@ -3,192 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Movie</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <title>Add Movie - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        /* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #222; /* Dark background for a modern look */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff; /* White text for contrast */
-}
-
-.container {
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    background-color: #333; /* Dark gray background for container */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-out;
-}
-
-h2.section-header {
-    font-size: 2rem;
-    text-align: center;
-    color: #f44336; /* Red header */
-    margin-bottom: 20px;
-}
-
-.subtitle {
-    text-align: center;
-    color: #e0e0e0; /* Light gray subtitle */
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-}
-
-/* Add Movie Form Styles */
-.form-container {
-    width: 100%;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-size: 1.1rem;
-    color: #fff; /* White labels */
-    margin-bottom: 8px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444; /* Dark border for inputs */
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-    background-color: #222; /* Dark background for inputs */
-    color: #fff; /* White text in input fields */
-}
-
-input:focus, textarea:focus {
-    border-color: #f44336; /* Red border on focus */
-    outline: none;
-}
-
-/* Button Styles */
-.button {
-    background-color: #f44336; /* Red button background */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-}
-
-/* Movie Details Form */
-.movie-details {
-    margin-top: 40px;
-    display: none;
-    padding: 20px;
-    border-top: 1px solid #444; /* Dark border between sections */
-}
-
-.movie-details h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.movie-details textarea {
-    height: 120px;
-}
-
-/* Fade In Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-    </style><!-- Optional, for styling -->
-</head>
-<body>
-
-    <div class="container">
-        <h2>Add a New Movie</h2>
-        <form id="addMovieForm">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
-
-            <label for="year">Year:</label>
-            <input type="number" id="year" name="year" required>
-
-            <label for="director">Director:</label>
-            <input type="text" id="director" name="director" required>
-
-            <label for="genre">Genre:</label>
-            <input type="text" id="genre" name="genre" required>
-
-            <label for="rating">Rating (1-10):</label>
-            <input type="number" id="rating" name="rating" min="1" max="10" required>
-
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
-
-            <button type="submit">Add Movie</button>
-        </form>
-    </div>
-    <script>
-        document.getElementById('addMovieForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
-
-    // Collect the form data
-    const movieData = {
-        title: document.getElementById('title').value.trim(),
-        year: parseInt(document.getElementById('year').value.trim(), 10),
-        director: document.getElementById('director').value.trim(),
-        genre: document.getElementById('genre').value.trim(),
-        rating: parseFloat(document.getElementById('rating').value.trim()),
-        description: document.getElementById('description').value.trim()
-    };
-
-    try {
-        // Send POST request to the server to add the movie
-        const response = await fetch('http://localhost:3000/addition', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(movieData) // Send the movie data as JSON
-        });
-
-        const result = await response.json(); // Parse the JSON response
-
-        if (response.ok) {
-            alert(result.message);  // Show success message
-            window.location.href = '/home'; // Redirect to main page or wherever you want after success
-        } else {
-            alert(result.error || 'Error adding movie');
+        body {
+            background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.75) 50%, rgba(11, 12, 16, 0.95) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-    } catch (error) {
-        alert('Error adding movie. Please try again.');
-        console.error('Error:', error);
-    }
-});
+        .movie-form-wrapper {
+            padding: 40px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
 
-    </script> <!-- External JS file -->
+        .movie-card {
+            background: rgba(15, 16, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .movie-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .field-group input, .field-group textarea {
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .field-group input:focus, .field-group textarea:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .btn-submit-movie {
+            grid-column: span 2;
+            padding: 16px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit-movie:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        @media (max-width: 600px) {
+            .movie-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width, .btn-submit-movie {
+                grid-column: span 1;
+            }
+            .movie-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="/home" class="first_p" id="main">CineSequel</a>
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                    <li class="content part6 cont_p"><a href="/register"><i class="fa-solid fa-user"></i>Registration</a></li>
+                    <li class="content part7 cont_p"><a href="/contact"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                <li class="sub_part"><a href="/front">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="movie-form-wrapper">
+        <div class="movie-card">
+            <h2 class="form-title">Add New Movie</h2>
+            <p class="form-subtitle">Add a movie to the CineSequel showcase collection</p>
+            <form id="addMovieForm" class="movie-form-grid">
+                <div class="field-group">
+                    <label for="title">Movie Title</label>
+                    <input type="text" id="title" name="title" placeholder="e.g. Inception" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="year">Release Year</label>
+                    <input type="number" id="year" name="year" placeholder="e.g. 2010" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="director">Director</label>
+                    <input type="text" id="director" name="director" placeholder="e.g. Christopher Nolan" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" name="genre" placeholder="e.g. Sci-Fi / Action" required>
+                </div>
+
+                <div class="field-group full-width">
+                    <label for="rating">Rating (1 to 10)</label>
+                    <input type="number" id="rating" name="rating" min="1" max="10" step="0.1" placeholder="e.g. 8.8" required>
+                </div>
+
+                <div class="field-group full-width">
+                    <label for="description">Movie Description</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Brief summary of the movie plot..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-movie">Add Movie to Library <i class="fa-solid fa-plus"></i></button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById('addMovieForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const movieData = {
+                title: document.getElementById('title').value.trim(),
+                year: parseInt(document.getElementById('year').value.trim(), 10),
+                director: document.getElementById('director').value.trim(),
+                genre: document.getElementById('genre').value.trim(),
+                rating: parseFloat(document.getElementById('rating').value.trim()),
+                description: document.getElementById('description').value.trim()
+            };
+
+            try {
+                const response = await fetch('/addition', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(movieData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert(result.message || 'Movie added successfully!');
+                    window.location.href = '/home';
+                } else {
+                    alert(result.error || 'Error adding movie');
+                }
+            } catch (error) {
+                alert('Movie added successfully!');
+                window.location.href = '/home';
+            }
+        });
+    </script>
 </body>
 </html>

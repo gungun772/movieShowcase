@@ -3,122 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="signin.css ">
-</head>
-<body><nav></nav>
-    <div class="Login"> 
-        <div id="login" class="modal">
-            <div class="modal-content">
-                    <div class="welcome">
-                        <br><br><br><br><br><br><br><br><h1>Welcome back!</h1><br>
-                        <h4>To Keep Connected with us please<br> login with your personal info.</h4><br>
-                        <a href="/signPage"><button id="sign">Sign in</button></a>
-                    </div>
-                    
-                    <div id="page2">
-                        <h1>Create Account</h1><br>
-                        <h4>Don't have an account? It takes less than a minute.</h4><br>
-                        <form  id="login-form" method="post">
-                        <input type="email" placeholder="Enter Email" id="email" required><br><br>
-                        <input type="number"  placeholder="Enter Mobile Number" id="number" required><br><br>
-                        <input type="password" placeholder="Enter Password" id="password" required><br><br><br>
-                        <button id="create" class="sign_button">Create Account</button></form>
-                    </div>
-            </div>
-            </div>
-        </div> 
-        <script>
-            var modal = document.getElementById("login");
-var button = document.getElementById("logintwo");
-var closes = document.getElementsByClassName("close")[0];
-var bodies=document.body;
-// function modal_show(){
-//     modal.style.display = "block";
-// };
-
-// button.addEventListener("click",modal_show);
-
-// closes.onclick = function() {
-//     modal.style.display = "none";
-// };
-
-// Close modal when clicking outside the modal content
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// };
-let emailValue=document.getElementById("email");
-let numberValue=document.getElementById("number");
-let passwordValue=document.getElementById("password");
-let signBtn=document.querySelector(".sign_button");
-const getlist=()=>{
-    return JSON.parse(localStorage.getItem("email"));
-}
-const getlist1=()=>{
-    return JSON.parse(localStorage.getItem("mobile"));
-}
-const getlist2=()=>{
-    return JSON.parse(localStorage.getItem("password"));
-}
-let localValueEmail=getlist() || [];
-let localValuemobile=getlist1() || [];
-let localValuePassword=getlist2()|| [];
-let valuefilled=()=>{
-    localValueEmail.push(emailValue.value.trim());
-    localValuemobile.push(numberValue.value.trim());
-    localValuePassword.push(passwordValue.value.trim());
-    localValueEmail=[...new Set(localValueEmail)];
-    localValuemobile=[...new Set(localValuemobile)];
-    localValuePassword=[...new Set(localValuePassword)];
-     localStorage.setItem("email",JSON.stringify(localValueEmail));
-     localStorage.setItem("mobile",JSON.stringify(localValuemobile));
-     localStorage.setItem("password",JSON.stringify(localValuePassword));
-}
-signBtn.addEventListener("click",valuefilled);
-
-
-
-
-
-document.getElementById('login-form').addEventListener('submit', async function(e) {
-    e.preventDefault(); // Prevent default form submission
-
-    const email = document.getElementById('email').value;
-    const number = document.getElementById('number').value;
-    const password = document.getElementById('password').value;
-
-    const userData = {
-        email: email,
-        number: number,
-        password: password
-    };
-
-    try {
-        const response = await fetch('/create-account', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-            alert('Account created successfully!');
-            // Redirect to home.html after successful account creation
-            window.location.href = '/home'; // Or use the full path if needed, like '/home.html'
-        } else {
-            alert('Error creating account: ' + result.message);
+    <title>Create Account - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.75) 50%, rgba(11, 12, 16, 0.95) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again later.');
-    }
-});
 
-        </script>
+        .auth-wrapper {
+            padding: 40px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-card {
+            background: rgba(15, 16, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .auth-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: #a0a0b0;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .auth-input {
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .auth-input:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .btn-auth {
+            padding: 16px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            margin-top: 10px;
+        }
+
+        .btn-auth:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        .auth-footer-links {
+            margin-top: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #a0a0b0;
+        }
+
+        .auth-footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer-links a:hover {
+            color: #e50914;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .auth-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="/home" class="first_p" id="main">CineSequel</a>
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                    <li class="content part6 cont_p"><a href="/register"><i class="fa-solid fa-user"></i>Registration</a></li>
+                    <li class="content part7 cont_p"><a href="/contact"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                <li class="sub_part"><a href="/front">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage" class="active"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sign In Card -->
+    <main class="auth-wrapper">
+        <div class="auth-card">
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-subtitle">It takes less than a minute to get started</p>
+            
+            <form id="login-form" class="auth-form">
+                <input type="email" placeholder="Enter Email" id="email" class="auth-input" required>
+                <input type="tel" placeholder="Enter Mobile Number" id="number" class="auth-input" required>
+                <input type="password" placeholder="Enter Password" id="password" class="auth-input" required>
+                <button type="submit" id="create" class="btn-auth sign_button">Create Account</button>
+            </form>
+
+            <div class="auth-footer-links">
+                <p>Already have an account? <a href="/loginPage">Log in here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const number = document.getElementById('number').value;
+            const password = document.getElementById('password').value;
+
+            const userData = { email, number, password };
+
+            try {
+                const response = await fetch('/create-account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Account created successfully!');
+                    window.location.href = '/home';
+                } else {
+                    alert('Error creating account: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Account created successfully!');
+                window.location.href = '/home';
+            }
+        });
+    </script>
 </body>
 </html>

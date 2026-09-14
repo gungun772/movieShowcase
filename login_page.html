@@ -3,28 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Mingle</title>
-    <link rel="stylesheet" href="loginPage.css">
-    <link rel="icon" href="images/fav.ico">
+    <title>Login - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.75) 50%, rgba(11, 12, 16, 0.95) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .auth-wrapper {
+            padding: 40px 20px;
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-card {
+            background: rgba(15, 16, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .auth-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .auth-input {
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .auth-input:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .btn-auth {
+            padding: 16px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-auth:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        .divider {
+            text-align: center;
+            color: #707080;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .btn-auth-outline {
+            padding: 14px;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        .auth-footer-links {
+            margin-top: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #a0a0b0;
+        }
+
+        .auth-footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer-links a:hover {
+            color: #e50914;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .auth-card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="main_login">
-        <div class="login">
-            <h1>Sign In</h1>
-            <form action="home.html">
-                <input type="email" placeholder="Email Address" id="email" class="login_items">
-                <input type="number" placeholder="Mobile Number" id="number" class="login_items">
-                <input type="password" placeholder="Password" id="password" class="login_items">
-                <button class="sign_button" type="button"><a href="#">Log In</a></button>
-                <p class="last">OR</p>
-                <button class="sign_code"><a href="#">Use a Sign-in code</a></button>
-                <p class="last2"><a href="#">Forget Password?</a></p>
-                <p class="last1 last3">New to Movie Mingle?<a href="#">Sign up now.</a></p>
-                <p class=" last1 last4">This page is protected by Google reCAPTCHA to<span> ensure you're not a bot <a href="#">Learn more.</a></a></p>
-            </form>
+    <!-- Top Navigation Bar -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="/home" class="first_p" id="main">CineSequel</a>
         </div>
-    </div>
-    <script src="login.js"></script>
-    <!-- <script src="login2.js"></script> -->
+        <div class="navbar">
+            <nav>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                    <li class="content part6 cont_p"><a href="/register"><i class="fa-solid fa-user"></i>Registration</a></li>
+                    <li class="content part7 cont_p"><a href="/contact"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                <li class="sub_part"><a href="/front">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage" class="active"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Auth Card -->
+    <main class="auth-wrapper">
+        <div class="auth-card">
+            <h1 class="auth-title">Sign In</h1>
+            <form action="/home" class="auth-form" id="loginForm">
+                <input type="email" placeholder="Email Address" id="email" class="auth-input" required>
+                <input type="tel" placeholder="Mobile Number" id="number" class="auth-input" required>
+                <input type="password" placeholder="Password" id="password" class="auth-input" required>
+                
+                <button type="submit" class="btn-auth">Log In</button>
+            </form>
+            
+            <div class="divider">OR</div>
+            <a href="#" class="btn-auth-outline">Use a Sign-in Code</a>
+            
+            <div class="auth-footer-links">
+                <a href="#">Forgot Password?</a>
+                <p>New to CineSequel? <a href="/register">Sign up now</a></p>
+                <p style="font-size: 0.8rem; color: #606070;">This page is protected by reCAPTCHA to ensure you're not a bot.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Sign in successful!");
+            window.location.href = "/home";
+        });
+    </script>
 </body>
 </html>

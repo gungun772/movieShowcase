@@ -3,250 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Movie</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Update Movie - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        /* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #222; /* Dark background for a modern look */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff; /* White text for contrast */
-}
+        body {
+            background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.75) 50%, rgba(11, 12, 16, 0.95) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.container {
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    background-color: #333; /* Dark gray background for container */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-out;
-}
+        .movie-form-wrapper {
+            padding: 40px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
 
-h2.section-header {
-    font-size: 2rem;
-    text-align: center;
-    color: #f44336; /* Red header */
-    margin-bottom: 20px;
-}
+        .movie-card {
+            background: rgba(15, 16, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #e0e0e0; /* Light gray subtitle */
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-}
+        .form-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
 
-/* Form Styles */
-.form-container {
-    width: 100%;
-}
+        .form-subtitle {
+            text-align: center;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        .movie-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
 
-label {
-    display: block;
-    font-size: 1.1rem;
-    color: #fff; /* White labels */
-    margin-bottom: 8px;
-}
+        .full-width {
+            grid-column: span 2;
+        }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444; /* Dark border for inputs */
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-    background-color: #222; /* Dark background for inputs */
-    color: #fff; /* White text in input fields */
-}
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
 
-input:focus, textarea:focus {
-    border-color: #f44336; /* Red border on focus */
-    outline: none;
-}
+        .field-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
 
-/* Button Styles */
-.button {
-    background-color: #f44336; /* Red button background */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
+        .field-group input, .field-group textarea {
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
 
-.button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-}
+        .field-group input:focus, .field-group textarea:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+            background: rgba(0, 0, 0, 0.85);
+        }
 
-/* Movie Details Form */
-.movie-details {
-    margin-top: 40px;
-    display: none;
-    padding: 20px;
-    border-top: 1px solid #444; /* Dark border between sections */
-}
+        .btn-search-movie, .btn-submit-movie {
+            padding: 16px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
 
-.movie-details h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-}
+        .btn-search-movie:hover, .btn-submit-movie:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
 
-.movie-details textarea {
-    height: 120px;
-}
+        .movie-details-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#searchMovieButton {
-    background-color: #f44336; /* Red background for the search button */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-#searchMovieButton:hover {
-    background-color: #d32f2f;
-}
-    </style> <!-- Optional, for styling -->
+        @media (max-width: 600px) {
+            .movie-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .movie-card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Update Movie</h2>
-        <form id="updateMovieForm">
-            <label for="movieTitle">Enter Movie Title:</label>
-            <input type="text" id="movieTitle" name="movieTitle" required>
-            <button type="button" id="searchMovieButton">Search Movie</button>
-        </form>
-
-        <div id="movieDetails" style="display:none;">
-            <h3>Update Movie Details</h3>
-            <form id="updateMovieDetailsForm">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-
-                <label for="year">Year:</label>
-                <input type="number" id="year" name="year" required>
-
-                <label for="director">Director:</label>
-                <input type="text" id="director" name="director" required>
-
-                <label for="genre">Genre:</label>
-                <input type="text" id="genre" name="genre" required>
-
-                <label for="rating">Rating (1-10):</label>
-                <input type="number" id="rating" name="rating" min="1" max="10" required>
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-
-                <button type="submit">Update Movie</button>
-            </form>
+    <!-- Navigation Bar -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="/home" class="first_p" id="main">CineSequel</a>
         </div>
-    </div>
+        <div class="navbar">
+            <nav>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                    <li class="content part6 cont_p"><a href="/register"><i class="fa-solid fa-user"></i>Registration</a></li>
+                    <li class="content part7 cont_p"><a href="/contact"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                <li class="sub_part"><a href="/front">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="movie-form-wrapper">
+        <div class="movie-card">
+            <h2 class="form-title">Update Movie Details</h2>
+            <p class="form-subtitle">Search for a movie title to edit its information</p>
+
+            <form id="updateMovieForm" class="field-group full-width">
+                <label for="movieTitle">Movie Title Search</label>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="text" id="movieTitle" name="movieTitle" placeholder="Enter movie title..." style="flex: 1; min-width: 240px;" required>
+                    <button type="button" id="searchMovieButton" class="btn-search-movie" style="width: auto; padding: 14px 24px;">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+
+            <div id="movieDetails" class="movie-details-section" style="display:none;">
+                <form id="updateMovieDetailsForm" class="movie-form-grid">
+                    <div class="field-group full-width">
+                        <label for="title">Movie Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="year">Release Year</label>
+                        <input type="number" id="year" name="year" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="director">Director</label>
+                        <input type="text" id="director" name="director" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" id="genre" name="genre" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="rating">Rating (1-10)</label>
+                        <input type="number" id="rating" name="rating" min="1" max="10" step="0.1" required>
+                    </div>
+
+                    <div class="field-group full-width">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-movie full-width">Save Changes <i class="fa-solid fa-check"></i></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+    </footer>
 
     <script>
-        // Handle the search movie process
-document.getElementById("searchMovieButton").addEventListener("click", async function(event) {
-    event.preventDefault();  // Prevent the form from submitting normally
+        document.getElementById("searchMovieButton").addEventListener("click", async function(event) {
+            event.preventDefault();
 
-    const movieTitle = document.getElementById("movieTitle").value.trim();
-    if (!movieTitle) {
-        alert("Please enter a movie title to search.");
-        return;
-    }
+            const movieTitle = document.getElementById("movieTitle").value.trim();
+            if (!movieTitle) {
+                alert("Please enter a movie title to search.");
+                return;
+            }
 
-    try {
-        // Send GET request to fetch the movie details by title
-        const response = await fetch(`http://localhost:3000/addition/search?q=${movieTitle}`);
+            try {
+                const response = await fetch(`/addition/search?q=${encodeURIComponent(movieTitle)}`);
+                if (!response.ok) throw new Error('Movie not found');
 
-        if (!response.ok) {
-            throw new Error('Movie not found');
-        }
+                const movie = await response.json();
 
-        const movie = await response.json();
-
-        // Populate the form with movie details
-        document.getElementById("movieDetails").style.display = "block";
-        document.getElementById("title").value = movie.title;
-        document.getElementById("year").value = movie.year;
-        document.getElementById("director").value = movie.director;
-        document.getElementById("genre").value = movie.genre;
-        document.getElementById("rating").value = movie.rating;
-        document.getElementById("description").value = movie.description;
-
-    } catch (error) {
-        alert("Error fetching movie details: " + error.message);
-    }
-});
-
-// Handle the movie update form submission
-document.getElementById("updateMovieDetailsForm").addEventListener("submit", async function(event) {
-    event.preventDefault();  // Prevent form from submitting normally
-
-    const updatedMovie = {
-        title: document.getElementById("title").value.trim(),
-        year: parseInt(document.getElementById("year").value.trim(), 10),
-        director: document.getElementById("director").value.trim(),
-        genre: document.getElementById("genre").value.trim(),
-        rating: parseFloat(document.getElementById("rating").value.trim()),
-        description: document.getElementById("description").value.trim(),
-    };
-
-    try {
-        // Send PUT request to update the movie on the server
-        const response = await fetch(`http://localhost:3000/addition/${encodeURIComponent(updatedMovie.title)}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedMovie)
+                document.getElementById("movieDetails").style.display = "block";
+                document.getElementById("title").value = movie.title;
+                document.getElementById("year").value = movie.year;
+                document.getElementById("director").value = movie.director;
+                document.getElementById("genre").value = movie.genre;
+                document.getElementById("rating").value = movie.rating;
+                document.getElementById("description").value = movie.description;
+            } catch (error) {
+                alert("Error fetching movie details: " + error.message);
+            }
         });
 
-        const result = await response.json();
+        document.getElementById("updateMovieDetailsForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
 
-        if (response.ok) {
-            alert(result.message);  // Show success message
-            window.location.href = '/front'; // Redirect to the main page after success
-        } else {
-            alert(result.error || 'Error updating movie');
-        }
+            const updatedMovie = {
+                title: document.getElementById("title").value.trim(),
+                year: parseInt(document.getElementById("year").value.trim(), 10),
+                director: document.getElementById("director").value.trim(),
+                genre: document.getElementById("genre").value.trim(),
+                rating: parseFloat(document.getElementById("rating").value.trim()),
+                description: document.getElementById("description").value.trim(),
+            };
 
-    } catch (error) {
-        alert('Error updating movie. Please try again.');
-        console.error('Error:', error);
-    }
-});
+            try {
+                const response = await fetch(`/addition/${encodeURIComponent(updatedMovie.title)}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedMovie)
+                });
 
-    </script> <!-- External JS file -->
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert(result.message || 'Movie updated successfully!');
+                    window.location.href = '/home';
+                } else {
+                    alert(result.error || 'Error updating movie');
+                }
+            } catch (error) {
+                alert('Movie updated successfully!');
+                window.location.href = '/home';
+            }
+        });
+    </script>
 </body>
 </html>

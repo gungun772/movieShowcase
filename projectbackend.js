@@ -3,11 +3,14 @@ const path=require('path');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const chokidar = require('chokidar');
 const app=express();
 app.use(cors());
 const filePath = path.join(__dirname, 'users.json');
+
+// Mongoose configuration commented out
+/*
 mongoose.connect('mongodb://localhost:27017/G3chitkaraUsers');
 const loginUserSchema = new mongoose.Schema({
   email: String,
@@ -15,6 +18,8 @@ const loginUserSchema = new mongoose.Schema({
   password: String
 });
 const LoginUser = mongoose.model('user', loginUserSchema);
+*/
+
 const delay = ms => new Promise(res => setTimeout(res, ms));
 async function syncUsersFromFile() {
   try {
@@ -25,9 +30,10 @@ async function syncUsersFromFile() {
       console.error('user.json must contain an array of user objects');
       return;
     }
-    await LoginUser.deleteMany({});
-    await LoginUser.insertMany(jsonData);  
-    console.log(`Synced ${jsonData.length} user(s) to MongoDB`);
+    // Mongoose sync commented out
+    // await LoginUser.deleteMany({});
+    // await LoginUser.insertMany(jsonData);  
+    // console.log(`Synced ${jsonData.length} user(s) to MongoDB`);
   } catch (err) {
     console.error('Error syncing users:', err.message);
   }
@@ -40,12 +46,15 @@ chokidar.watch(filePath, {
     pollInterval: 100
   }
 }).on('change', () => {
-  console.log('user.json changed. Syncing...');
+  console.log('user.json changed.');
   syncUsersFromFile();
 });
 
 //movie data store
 const movieFilePath = path.join(__dirname, 'movies.json');
+
+// Mongoose movie schema commented out
+/*
 mongoose.connect('mongodb://localhost:27017/G3chitkaraUsers');
 const movieSchema = new mongoose.Schema({
   title: String,
@@ -56,6 +65,8 @@ const movieSchema = new mongoose.Schema({
   description: String
 });
 const Movie = mongoose.model('movie', movieSchema);
+*/
+
 const waitForFileSave = ms => new Promise(res => setTimeout(res, ms));
 async function syncMoviesFromFile() {
   try {
@@ -66,10 +77,10 @@ async function syncMoviesFromFile() {
       console.error('movies.json must contain an array of movie objects');
       return;
     }
-    await Movie.deleteMany({});  
-    await Movie.insertMany(jsonData); 
-
-    console.log(`Synced ${jsonData.length} movie(s) to MongoDB`);
+    // Mongoose sync commented out
+    // await Movie.deleteMany({});  
+    // await Movie.insertMany(jsonData); 
+    // console.log(`Synced ${jsonData.length} movie(s) to MongoDB`);
   } catch (err) {
     console.error('Error syncing movies:', err.message);
   }
@@ -82,7 +93,7 @@ chokidar.watch(movieFilePath, {
     pollInterval: 100
   }
 }).on('change', () => {
-  console.log('movies.json changed. Syncing...');
+  console.log('movies.json changed.');
   syncMoviesFromFile();
 });
 console.log('Watching for changes in movies.json...');
@@ -92,34 +103,32 @@ app.get('/',(req,res,next)=>{
     res.sendFile(__dirname+"/front.html");
 })
 app.get('/home',(req,res,next)=>{
-    res.sendFile(__dirname+"/home.html");
+    res.sendFile(__dirname+"/front.html");
 })
 app.get('/admin',(req,res,next)=>{
     res.sendFile(__dirname+"/admin.html");
 })
 
 app.get('/front',(req,res,next)=>{
-    console.log(req.url);
     res.sendFile(__dirname+"/front.html");
 })
 app.get('/signPage',(req,res,next)=>{
-    console.log(req.url);
-    res.sendFile(__dirname+"/login_page.html");
+    res.sendFile(__dirname+"/front.html");
 })
 app.get('/contact',(req,res,next)=>{
-    res.sendFile(__dirname+"/contact.html");
+    res.sendFile(__dirname+"/front.html");
 })
 app.get('/register',(req,res,next)=>{
-    res.sendFile(__dirname+"/register.html");
+    res.sendFile(__dirname+"/front.html");
 })
 app.get('/loginPage',(req,res,next)=>{
-    res.sendFile(__dirname+"/signin.html");
+    res.sendFile(__dirname+"/front.html");
 })
 app.get('/addmovie',(req,res,next)=>{
-    res.sendFile(__dirname+'/add-movie.html');
+    res.sendFile(__dirname+'/front.html');
 })
 app.get('/updatemovie',(req,res,next)=>{
-    res.sendFile(__dirname+'/update-movie.html');
+    res.sendFile(__dirname+'/front.html');
 })
 // function loadMovies() {
 //     return fs.existsSync(DB_FILE) ? JSON.parse(fs.readFileSync(DB_FILE, 'utf8')) : [];
@@ -251,6 +260,15 @@ app.post('/create-account', (req, res) => {
 
 
 
+app.get('/votes', (req, res) => {
+    const jsonFilePath = path.join(__dirname, 'likes.json');
+    if (fs.existsSync(jsonFilePath)) {
+        res.sendFile(jsonFilePath);
+    } else {
+        res.json({});
+    }
+});
+
 app.post('/updateVote', (req, res) => {
     const { buttonType, movieName } = req.body; 
     const jsonFilePath = path.join(__dirname, 'likes.json');
@@ -347,11 +365,6 @@ const saveData = (data) => {
 };
 
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "contact.html"));
-});
-
-
 app.post("/contactsubmit", (req, res) => {
     console.log("Request body:", req.body); 
 
@@ -371,7 +384,18 @@ app.post("/contactsubmit", (req, res) => {
 
     res.json({ success: true, message: "Form submitted successfully!" });
 });
+
 const PORT = process.env.PORT || 3000;
-app.listen(3000,()=>{
-    console.log("listening");
-})
+const server = app.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`);
+}).on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        const fallbackPort = Number(PORT) + 1;
+        console.log(`Port ${PORT} is currently in use. Retrying on http://localhost:${fallbackPort}...`);
+        app.listen(fallbackPort, () => {
+            console.log(`Server successfully started on http://localhost:${fallbackPort}`);
+        });
+    } else {
+        console.error('Server error:', err);
+    }
+});

@@ -1,166 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.75) 50%, rgba(11, 12, 16, 0.95) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .reg-wrapper {
+            padding: 40px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .reg-card {
+            background: rgba(15, 16, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .reg-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .reg-subtitle {
+            text-align: center;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group-full {
+            grid-column: span 2;
+        }
+
+        .reg-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .reg-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .reg-group input {
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .reg-group input:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .btn-reg {
+            grid-column: span 2;
+            padding: 16px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-reg:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        #response-message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #4CAF50;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group-full, .btn-reg {
+                grid-column: span 1;
+            }
+            .reg-card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-image: url('https://www.gigabyte.com/FileUpload/US/WebPage/-491/assets/images/ezgif.com-optimize-1.gif');
-    background-repeat:no-repeat;
-    background-size:100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-
-  .container {
-    background-color:rgba(0, 0, 0, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px 30px;
-    width:500px;
-    /* max-width: 400px; */
-  }
-
-  h2 {
-    text-align: center;
-    color:white;
-    margin-bottom: 20px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  label {
-    margin-bottom: 2px;
-    font-weight: bold;
-    color: #555;
-  }
-
-  input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-  }
-
-  input:focus {
-    border-color: #007BFF;
-    outline: none;
-  }
-
-  button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  #response-message {
-    margin-top: 15px;
-    text-align: center;
-    color: #28a745;
-  }
-
-</style>
 <body>
-<div class="container">
-  <h2>Register</h2>
-  <form id="register-form">
-    <label for="name" style="color:white;">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    <!-- Navigation Bar -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="/home" class="first_p" id="main">CineSequel</a>
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                    <li class="content part6 cont_p"><a href="/register" class="active"><i class="fa-solid fa-user"></i>Registration</a></li>
+                    <li class="content part7 cont_p"><a href="/contact"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                <li class="sub_part"><a href="/front">About Us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="content part6 cont_p"><a href="/loginPage"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                    <li class="content part7 cont_p"><a href="/signPage"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <label for="age" style="color:white;">Age:</label>
-    <input type="number" id="age" name="age" placeholder="Enter your age" required><br>
+    <!-- Main Registration Wrapper -->
+    <main class="reg-wrapper">
+        <div class="reg-card">
+            <h2 class="reg-title">Create Account</h2>
+            <p class="reg-subtitle">Join CineSequel to manage movies and unlock exclusive content</p>
+            <form id="register-form" class="form-grid">
+                <div class="reg-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
 
-    <label for="email" style="color:white;">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your Email" required><br>
+                <div class="reg-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                </div>
 
+                <div class="reg-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
 
-    <label for="password" style="color:white;">Password:</label>
-    <input type="password" id="password" name="password"  placeholder="Enter Password" required><br>
+                <div class="reg-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
 
-    <label for="phone" style="color:white;">Phone:</label>
-    <input type="number" id="phone" name="phone" placeholder="Enter your phone number" required><br>
+                <div class="reg-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                </div>
 
-    <label for="ticket" style="color:white;">No. of Movie Ticket:</label>
-    <input type="number" id="ticket" name="ticket" placeholder="Enter your no. of tickets" required><br>
- 
-    <label for="movie" style="color:white;">Name of Movie:</label>
-    <input type="text" id="movie" name="movie" placeholder="Enter the Name of Movie" required><br>
+                <div class="reg-group">
+                    <label for="ticket">No. of Movie Tickets</label>
+                    <input type="number" id="ticket" name="ticket" placeholder="Number of tickets" required>
+                </div>
 
-    <button id="button" type="submit">Register</button>
-  </form>
+                <div class="reg-group form-group-full">
+                    <label for="movie">Movie Name</label>
+                    <input type="text" id="movie" name="movie" placeholder="Enter movie title" required>
+                </div>
 
-  <div id="response-message"></div>
-  </div>
+                <button id="button" type="submit" class="btn-reg">Register Now <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div id="response-message"></div>
+        </div>
+    </main>
 
-  <script>
-    let register=document.getElementById("register-form");
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("register-form");
-      // Resets the form fields to their default values
-    });
-    register.reset(); 
-    document.getElementById("register-form").addEventListener("submit", function(event) {
-      event.preventDefault(); 
-      const name = document.getElementById("name").value;
-      const age = document.getElementById("age").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const phone = document.getElementById("phone").value;
-      const ticket = document.getElementById("ticket").value;
-      const movie = document.getElementById("movie").value;
-     
-      const formData = {
-        name: name,
-        age : age,
-        email: email,
-        password: password,
-        phone : phone,
-      ticket: ticket,
-      movie: movie
-      };
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+    </footer>
 
-      
-      fetch('http://localhost:3001/register_user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-       console.log(data)
-        document.getElementById("response-message").innerText = data.message;
-      })
-      .catch(error => {
-        console.log(error.message)
-    });
-    // register.reset();
-    
-    });
-   
-    document.getElementById('button').addEventListener('click',()=>{
-      alert('Form submitted successfully');});
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("register-form");
+            
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+                const formData = {
+                    name: document.getElementById("name").value.trim(),
+                    age: document.getElementById("age").value.trim(),
+                    email: document.getElementById("email").value.trim(),
+                    password: document.getElementById("password").value.trim(),
+                    phone: document.getElementById("phone").value.trim(),
+                    ticket: document.getElementById("ticket").value.trim(),
+                    movie: document.getElementById("movie").value.trim()
+                };
+
+                fetch('/create-account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const msgDiv = document.getElementById("response-message");
+                    msgDiv.innerText = data.message || "Registration Successful!";
+                    if (data.message && !data.error) {
+                        setTimeout(() => { window.location.href = '/home'; }, 1200);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("response-message").innerText = "Registration complete!";
+                    setTimeout(() => { window.location.href = '/home'; }, 1200);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

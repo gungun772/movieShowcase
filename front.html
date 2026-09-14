@@ -3,267 +3,967 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Showcase </title>
+    <title>CineSequel - Ultimate Movie & TV Showcase</title>
     <link rel="stylesheet" href="./front.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-    
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
-    <div class="main_nav">
-        <p class="first_p" id="main">CineSequel</p>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <header class="main_nav">
+        <div class="brand">
+            <a href="#home" class="first_p" id="main"><i class="fa-solid fa-clapperboard"></i> CineSequel</a>
+        </div>
         <div class="navbar">
             <nav>
-                <ul>
-                    <li class="content part1"><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
-                    <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a>
-                    </li>
-                    <li class="content part6 cont_p"><a href="/register"><i
-                        class="fa-solid fa-user"></i>Registration</a></li>
-            <li class="content part7 cont_p"><a href="/contact"><i
-                        class="fa-solid fa-address-book"></i>Contact Us</a></li>
-                    <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                <ul class="nav-menu">
+                    <li class="content part1"><a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li class="content part4 cont_p"><a href="#about"><i class="fa-solid fa-medal"></i> About Us</a></li>
+                    <li class="content part5 cont_p"><a href="#categories"><i class="fa-solid fa-list"></i> Categories</a>
                         <div class="sub-menu">
                             <ul>
-                                <li class="sub_part"><a href="#tv_part"><a href="#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
-                                <li class="sub_part"><a href="#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
-                                <li class="sub_part"><a href="#sports_part">Sports</a></li>
-                                <li class="sub_part"><a href="/front" target="_blank">About Us</a></li>
+                                <li class="sub_part"><a href="#tv_part"><i class="fa-solid fa-tv"></i> TV Shows</a></li>
+                                <li class="sub_part"><a href="#movie_part"><i class="fa-solid fa-film"></i> Movies</a></li>
+                                <li class="sub_part"><a href="#sports_part"><i class="fa-solid fa-trophy"></i> Sports</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="content part6 cont_p"><a href="/loginPage"><i
-                                class="fa-solid fa-user"></i>Login</a></li>
-                    <li class="content part7 cont_p"><a href="/signPage"><i
-                                class="fa-solid fa-address-book"></i>Signin</a></li>
+                    <li class="content part6 cont_p"><a href="#register-section"><i class="fa-solid fa-user-plus"></i> Registration</a></li>
+                    <li class="content part7 cont_p"><a href="#contact-section"><i class="fa-solid fa-address-book"></i> Contact Us</a></li>
+                    <li class="content part8 cont_p"><a href="#movie-manager"><i class="fa-solid fa-film"></i> Movie Manager</a></li>
+                    <li class="content part6 cont_p"><a href="#" id="openLoginBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
                 </ul>
             </nav>
-            <div class="front">
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1>Unlimited Movies, TV Shows and More.</h1>
-                    <p>Watch anywhere. Cancel anytime.</p>
-                    <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <form id="emailForm" class="email-form">
-                        <input type="email" id="email" name="email" placeholder="Email Address" required>
-                        <button type="submit">Get Started</button>
-                    </form>
+            <div class="seac">
+                <input type="text" placeholder="Search Movie..." id="search">
+                <button class="search_button" id="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="search-results-dropdown" id="searchDropdown"></div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO HOME HEADER SECTION -->
+    <section class="hero-container" id="home">
+        <div class="hero-section">
+            <div class="hero-content animate__animated animate__fadeInUp">
+                <h1 class="hero-title">UNLIMITED MOVIES, TV SHOWS AND MORE.</h1>
+                <p class="hero-subtitle">Watch anywhere. Cancel anytime.</p>
+                <p class="hero-desc">Ready to watch? Enter your email to create or restart your membership.</p>
+                <form id="emailForm" class="email-form">
+                    <input type="email" id="hero_email" name="email" placeholder="Email Address" required>
+                    <button type="submit">Get Started <i class="fa-solid fa-chevron-right"></i></button>
+                </form>
+                <div id="heroMsg" style="margin-top: 15px; color: #e50914; font-weight: 600;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT US SECTION -->
+    <section class="movieDis" id="about">
+        <div class="about-header">
+            <img class="aboutImg" src="./aboutus.gif" alt="About Us">
+            <h1 class="head">About Us</h1>
+        </div>
+
+        <div class="dis-container">
+            <div class="dis1 dis-card">
+                <div class="disImg1 img"><img class="Img" src="https://images5.alphacoders.com/131/1315822.jpg" alt="English Movies"></div>
+                <div class="disHead1">
+                    <h1>English Movies</h1>
+                    <p>Watching English movies can be a fun and effective way to improve your language skills, expand your vocabulary, and explore international culture through cinematic storytelling.</p>
                 </div>
             </div>
-</div>
-<!-- sliding images -->
-<div class="movieDis">
-    <img class="aboutImg" src="./aboutus.gif" alt="loading...">
-    <h1 class="head">About Us</h1>
-    <div class="dis1">
-        <div class="disImg1 img"><img class="Img" src="https://images5.alphacoders.com/131/1315822.jpg" alt=""></div>
-        <div class="disHead1">
-            <h1>English Movies</h1>
-            <p>Watching English movies can be a fun and effective way to improve your English language skills. You can learn new vocabulary, grammar, and pronunciation.</p>
+
+            <div class="dis2 dis-card">
+                <div class="disHead2">
+                    <h1>Sports Shows</h1>
+                    <p>Experience intense competitions, inspiring athletic achievements, and behind-the-scenes documentary thrillers that put you inside the stadium.</p>
+                </div>
+                <div class="disImg2 img"><img class="Img Img2" src="https://i.redd.it/5og2em072fvb1.jpg" alt="Sports Shows"></div>
+            </div>
+
+            <div class="dis3 dis-card">
+                <div class="disImg3 img"><img class="Img Img3" src="https://cdn.europosters.eu/image/hp/106300.jpg" alt="English Shows"></div>
+                <div class="disHead3">
+                    <h1>English Shows</h1>
+                    <p>Critically acclaimed original series featuring high production values, compelling storytelling, character drama, and award-winning ensemble casts.</p>
+                </div>
+            </div>
+
+            <div class="dis4 dis-card">
+                <div class="disHead4">
+                    <h1>Korean Dramas</h1>
+                    <p>Immerse yourself in K-dramas with breathtaking visuals, memorable soundtracks, intriguing suspense, and gripping romantic sagas.</p>
+                </div>
+                <div class="disImg4 img"><img class="Img Img4" src="https://korean-binge.com/wp-content/uploads/2022/04/korb-10-striking-posters.jpg?w=1200" alt="Korean Dramas"></div>
+            </div>
+
+            <div class="dis5 dis-card">
+                <div class="disImg5 img"><img class="Img Img5" src="https://m.media-amazon.com/images/I/71VVvxJWRbL.jpg" alt="Anime"></div>
+                <div class="disHead5">
+                    <h1>Anime</h1>
+                    <p>Vibrant animation, fantastical worlds, emotional arcs, and fluid action sequences that create unforgettable viewing experiences for fans worldwide.</p>
+                </div>
+            </div>
+
+            <div class="dis6 dis-card">
+                <div class="disHead6">
+                    <h1>Chinese Drama</h1>
+                    <p>Historical sagas and contemporary romances rich in cultural heritage, stunning wardrobe design, intricate martial arts, and deep plotlines.</p>
+                </div>
+                <div class="disImg6 img"><img class="Img Img6" src="https://images.herzindagi.info/image/2024/Apr/chinese-medical-dramas-on-youtube.jpg" alt="Chinese Drama"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CATEGORIES & SHOWCASE -->
+    <section class="section-wrapper" id="categories">
+        <!-- TV Shows -->
+        <h1 class="movie_head" id="tv_part">TV Shows</h1>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow arrow-left" onclick="scrollCarousel(this, -680)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="details_tv">
+                <div class="box">
+                    <video src="howimeetyoumom.mp4" class="box_video" controls poster="tv_poster1.jpg"></video>
+                    <h2>HOW I MET YOUR MOTHER</h2>   
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>Set in NYC, follows Ted Mosby telling his kids the hilarious story of how he met their mother.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="homeland.mp4" class="box_video" controls></video>
+                    <h2>HOMELAND</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>An Emmy Award-winning thriller about a CIA officer navigating espionage, intelligence, and national security suspicion.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="hart_di.mp4" class="box_video" controls poster="tv_poster3.jpg"></video>
+                    <h2>HART OF DIXIE</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>Dr. Zoe Hart moves to Bluebell, Alabama to practice medicine in a charming Southern small town.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="suits.mp4" class="box_video" controls poster="tv_poster7.jpg"></video>
+                    <h2>SUITS</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>A college dropout with a photographic memory works with New York's top corporate lawyer.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="friends.mp4" class="box_video" controls poster="tv_poster9.webp"></video>
+                    <h2>FRIENDS</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>The iconic sitcom following six close friends navigating life, careers, and love in Manhattan.</p></div>
+                </div>
+            </div>
+            <button class="carousel-arrow arrow-right" onclick="scrollCarousel(this, 680)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Movies -->
+        <h1 class="movie_head" id="movie_part">Blockbuster Movies</h1>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow arrow-left" onclick="scrollCarousel(this, -680)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="details_movie">
+                <div class="box">
+                    <video src="mongol2.mp4" class="box_video" controls poster="movie.jpg"></video>
+                    <h2>MONGOL</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>The epic historical story of Genghis Khan's early life, survival, and rise to conqueror.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="jumanji.mp4" class="box_video" controls poster="movie_poster2.jpg"></video>
+                    <h2>JUMANJI</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>A magical board game releases jungle hazards upon two kids and a long-trapped adventurer.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="avatar.mp4" class="box_video" controls poster="movie_poster3.webp"></video>
+                    <h2>AVATAR</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>A paraplegic Marine dispatched to Pandora becomes torn between orders and protecting the alien world.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="black_adam.mp4" class="box_video" controls poster="movie_poster9.jpg"></video>
+                    <h2>BLACK ADAM</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>Nearly 5,000 years after he was bestowed with powers, Black Adam is freed from his ancient tomb.</p></div>
+                </div>
+            </div>
+            <button class="carousel-arrow arrow-right" onclick="scrollCarousel(this, 680)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Sports -->
+        <h1 class="movie_head" id="sports_part">Sports Shows</h1>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow arrow-left" onclick="scrollCarousel(this, -680)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="details_sport">
+                <div class="box">
+                    <video src="big_shot.mp4" class="box_video" controls poster="sports1.jpg"></video>
+                    <h2>BIG SHOT</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>A temperamental college basketball coach finds redemption coaching a high school girls team.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="last_dance.mp4" class="box_video" controls poster="sports4.jpg"></video>
+                    <h2>THE LAST DANCE</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>Docuseries chronicling Michael Jordan and the 1990s Chicago Bulls championship dynasty.</p></div>
+                </div>
+
+                <div class="box">
+                    <video src="ted_lasso.mp4" class="box_video" controls poster="sports_4.jpg"></video>
+                    <h2>TED LASSO</h2>
+                    <div class="card-actions">
+                        <button class="like_button" title="Like"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="show_button" title="More Info"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="dislike_button" title="Dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+                    </div>
+                    <div class="shows_para"><p>An optimistic American college football coach manages a struggling English Premier League football team.</p></div>
+                </div>
+            </div>
+            <button class="carousel-arrow arrow-right" onclick="scrollCarousel(this, 680)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- SECTION 4: USER REGISTRATION SECTION -->
+    <section class="reg-wrapper" id="register-section">
+        <div class="reg-card">
+            <h2 class="reg-title">Create Account</h2>
+            <p class="reg-subtitle">Join CineSequel to get personalized recommendations and manage movies</p>
+            <form id="register-form" class="form-grid">
+                <div class="reg-group">
+                    <label for="reg_name">Full Name</label>
+                    <input type="text" id="reg_name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="reg-group">
+                    <label for="reg_age">Age</label>
+                    <input type="number" id="reg_age" placeholder="Enter your age" required>
+                </div>
+
+                <div class="reg-group">
+                    <label for="reg_email">Email Address</label>
+                    <input type="email" id="reg_email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="reg-group">
+                    <label for="reg_password">Password</label>
+                    <input type="password" id="reg_password" placeholder="Enter password" required>
+                </div>
+
+                <div class="reg-group">
+                    <label for="reg_phone">Phone Number</label>
+                    <input type="tel" id="reg_phone" placeholder="Enter phone number" required>
+                </div>
+
+                <div class="reg-group">
+                    <label for="reg_ticket">No. of Movie Tickets</label>
+                    <input type="number" id="reg_ticket" placeholder="Number of tickets" required>
+                </div>
+
+                <div class="reg-group form-group-full">
+                    <label for="reg_movie">Favorite Movie</label>
+                    <input type="text" id="reg_movie" placeholder="Enter favorite movie title" required>
+                </div>
+
+                <button type="submit" class="btn-reg">Register Now <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div id="regResponseMsg" style="margin-top: 15px; text-align: center; color: #4CAF50; font-weight: 600;"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT US SECTION -->
+    <section class="contact-wrapper" id="contact-section">
+        <div class="contact-card">
+            <div class="contact-header-text">
+                <h1>Get In Touch</h1>
+                <p>Have questions, feedback, or suggestions? Reach out to the CineSequel team below.</p>
+            </div>
+            <div class="contact-grid">
+                <!-- Map Section -->
+                <div class="map-container">
+                    <iframe class="contact_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219985.13239228545!2d76.49830977065896!3d30.51346873495391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fec00d166f58b%3A0x8a8c7b6ac3c8b0b1!2sCinepolis!5e0!3m2!1sen!2sin!4v1725277871006!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <!-- Contact Form Section -->
+                <form id="contactForm" class="contact_start"> 
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact_firstName">First Name</label>
+                            <input type="text" id="contact_firstName" placeholder="First name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact_lastName">Last Name</label>
+                            <input type="text" id="contact_lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact_email">Email Address</label>
+                            <input type="email" id="contact_email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact_mobile">Mobile Number</label>
+                            <input type="tel" id="contact_mobile" placeholder="Mobile" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_message">Message</label>
+                        <textarea id="contact_message" rows="4" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-contact">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    <div id="contactResponseMsg" style="margin-top: 10px; text-align: center; color: #4CAF50; font-weight: 600;"></div>
+                </form> 
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: MOVIE MANAGEMENT SECTION -->
+    <section class="co" id="movie-manager">
+        <div class="actions-panel">
+            <h2>Movie Collection Manager</h2>
+            <p style="color: #a0a0b0; margin-bottom: 25px;">Add, update, or remove movies from the CineSequel library</p>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <button id="toggleAddMovieBtn" class="manager-btn btn-primary-red"><i class="fa-solid fa-plus"></i> Add New Movie</button>
+                <button id="toggleUpdateMovieBtn" class="manager-btn btn-secondary-outline"><i class="fa-solid fa-pen-to-square"></i> Update Movie</button>
+            </div>
+
+            <!-- Inline Add Form -->
+            <form id="inlineAddMovieForm" style="display: none; margin-top: 30px; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left;">
+                <h3 style="grid-column: span 2; color: #ffffff; font-size: 1.3rem; margin-bottom: 5px;">Add New Movie Details</h3>
+                <input type="text" id="add_title" placeholder="Title" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                <input type="number" id="add_year" placeholder="Year" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                <input type="text" id="add_director" placeholder="Director" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                <input type="text" id="add_genre" placeholder="Genre" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                <input type="number" id="add_rating" step="0.1" min="1" max="10" placeholder="Rating (1-10)" style="grid-column: span 2; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                <textarea id="add_description" placeholder="Description" rows="3" style="grid-column: span 2; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required></textarea>
+                <button type="submit" class="manager-btn btn-primary-red" style="grid-column: span 2; justify-content: center;">Save Movie</button>
+            </form>
+
+            <!-- Inline Update Form -->
+            <form id="inlineUpdateMovieForm" style="display: none; margin-top: 30px; text-align: left;">
+                <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 12px;">Search & Update Movie</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <input type="text" id="update_search_title" placeholder="Enter title to search..." style="flex: 1; min-width: 220px; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;">
+                    <button type="button" id="updateSearchBtn" class="manager-btn btn-primary-red"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </div>
+                <div id="updateFieldsContainer" style="display: none; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="text" id="up_title" placeholder="Title" readonly style="grid-column: span 2; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color:#fff;">
+                    <input type="number" id="up_year" placeholder="Year" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                    <input type="text" id="up_director" placeholder="Director" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                    <input type="text" id="up_genre" placeholder="Genre" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                    <input type="number" id="up_rating" step="0.1" min="1" max="10" placeholder="Rating (1-10)" style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required>
+                    <textarea id="up_description" placeholder="Description" rows="3" style="grid-column: span 2; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color:#fff;" required></textarea>
+                    <button type="submit" class="manager-btn btn-primary-red" style="grid-column: span 2; justify-content: center;">Save Changes</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Live Movie Collection -->
+        <div id="movies-container" style="margin-top: 35px;">
+            <h2 style="font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 20px;">Your Movie Collection</h2>
+            <div id="movies-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: REASONS TO JOIN SECTION -->
+    <section class="reasons-wrapper">
+        <h1 class="movie_head">More Reasons To Join</h1>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div>
+                    <h2>Enjoy on your TV</h2>
+                    <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                </div>
+                <img src="Television.gif" alt="TV icon">
+            </div>
+
+            <div class="reason-card">
+                <div>
+                    <h2>Download to watch offline</h2>
+                    <p>Save your favourites easily and always have something to watch offline.</p>
+                </div>
+                <img src="downloading.gif" alt="Download icon">
+            </div>
+
+            <div class="reason-card">
+                <div>
+                    <h2>Watch everywhere</h2>
+                    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+                </div>
+                <img src="telescope.gif" alt="Watch icon">
+            </div>
+
+            <div class="reason-card">
+                <div>
+                    <h2>Create profiles for kids</h2>
+                    <p>Send kids on adventures with their favourite characters in a space made just for them.</p>
+                </div>
+                <img src="creativity.gif" alt="Kids icon">
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTH MODAL -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-card">
+            <span class="modal-close" id="closeLoginBtn">&times;</span>
+            <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 20px; text-align: center;">Sign In</h2>
+            <form id="modalLoginForm" style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="email" placeholder="Email Address" required style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color: #fff;">
+                <input type="password" placeholder="Password" required style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color: #fff;">
+                <button type="submit" class="manager-btn btn-primary-red" style="justify-content: center; margin-top: 10px;">Log In</button>
+            </form>
         </div>
     </div>
 
-    <div class="dis2">
-        <div class="disHead2">
-            <h1>Sports Shows</h1>
-            <p>Sports often involve intense competition, which can be thrilling to watch.</p>
-        </div>
-        <div class="disImg2 img"><img class="Img Img2" src="https://i.redd.it/5og2em072fvb1.jpg" alt=""></div>
-    </div>
-
-    <div class="dis3">
-        <div class="disImg3 img"><img class="Img Img3" src="https://cdn.europosters.eu/image/hp/106300.jpg" alt=""></div>
-        <div class="disHead3">
-            <h1>English Show</h1>
-            <p>Many English shows are known for their high production values, compelling narratives, and memorable characters.</p>
-        </div>
-    </div>
-
-    <div class="dis4">
-        <div class="disHead4">
-            <h1>Korean Dramas</h1>
-            <p>K-dramas often feature stunning visuals and picturesque settings.</p>
-        </div>
-        <div class="disImg4 img"><img class="Img Img4" src="https://korean-binge.com/wp-content/uploads/2022/04/korb-10-striking-posters.jpg?w=1200" alt=""></div>
-    </div>
-
-    <div class="dis5">
-        <div class="disImg5 img"><img class="Img Img5" src="https://m.media-amazon.com/images/I/71VVvxJWRbL.jpg" alt=""></div>
-        <div class="disHead5">
-            <h1>Anime</h1>
-            <p> Anime's vibrant colors, exaggerated expressions, and fluid animation create a visually striking experience.</p>
-        </div>
-    </div>
-
-    <div class="dis6">
-        <div class="disHead6">
-            <h1>Chinese Drama</h1>
-            <p>Many C-dramas are based on historical events or fiction, providing a rich and immersive experience.</p>
-        </div>
-        <div class="disImg6 img"><img class="Img Img6" src="https://images.herzindagi.info/image/2024/Apr/chinese-medical-dramas-on-youtube.jpg" alt=""></div>
-    </div>
-</div>
-
-
-<!-- movie management -->
-<!-- <header>
-    <h1>Movie Manager</h1>
-</header> -->
-
-<!-- <div class="container">
-   <div class="actions-panel">
-        <h2 class="section-header" style="font-size:3.5rem; color:white;">Movie Actions</h2>
-        <p class="subtitle">Manage your movie collection with these tools</p>
-        <button id="addMovieButton"><a href="/addmovie" style="text-decoration: none; color:white;">Add Movie</a></button>
-        <button id="updateMovieButton"><a href="/updatemovie" style="text-decoration: none; color:white;">Update Movie</a></button>
-        <button id="deleteMovieButton">Delete Movie</button>
-    </div>
-    <div id="movies-container">
-        <h2 class="section-header">Your Movie Collection</h2>
-        <ul id="movies-list"></ul>
-        <div id="empty-state" class="empty-state" style="display: none;">
-            <i>📽️</i>
-            <h3>Your collection is empty</h3>
-            <p>No movies in your collection yet. Add your first movie using the Add Movie button above!</p>
-        </div>
-    </div>
-
-</div> -->
-<div class="login">
-        <h2 class="login_name">Movie Mingle</h2>
-        <a href="#"><button class="login_button"><a href="login_page.html" target="_blank">LogIn</a></button></a>
-        <a href="#"><button class="signin_button"><a href="login_page.html" target="_blank"> Sign In</a></button></a>
-<h1 class="login_head">Unlimited movies,<span> TV shows and more</span></h1>
-        <p class="login_para">Ready to watch? Enter your email to create or restart your membership.</p>
-        <input type="email" placeholder="Email Address" class="email">
-        <a href="#"><button class="start_button"><a href="#">Get Started</a></button></a>
-    </div>
-
-
-    <!-- footer -->
+    <!-- FOOTER -->
     <footer class="footer">
-        <!-- <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div> -->
         <ul class="menu">
-            <li class="menu_item"><a class="menu_link" href="#">Home</a></li>
-            <li class="menu_item"><a class="menu_link" href="#">About</a></li>
-            <li class="menu_item"><a class="menu_link" href="#">Services</a></li>
-            <li class="menu_item"><a class="menu_link" href="#">Team</a></li>
-            <li class="menu_item"><a class="menu_link" href="#">Contact</a></li>
-
+            <li class="menu_item"><a class="menu_link" href="#home">Home</a></li>
+            <li class="menu_item"><a class="menu_link" href="#about">About</a></li>
+            <li class="menu_item"><a class="menu_link" href="#register-section">Register</a></li>
+            <li class="menu_item"><a class="menu_link" href="#contact-section">Contact</a></li>
+            <li class="menu_item"><a class="menu_link" href="#movie-manager">Movie Manager</a></li>
         </ul>
-        <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+        <p>&copy; 2026 CineSequel | All Rights Reserved</p>
     </footer>
-<script src="delete-movie.js"></script>
-    <script src="./front.js"></script>
+
+    <!-- JS SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="./front.js"></script>
     <script>
-        $(document).ready(function(){
-$('.disImg1').waypoint(function(Direction){
-        $('.disImg1').addClass('animate1');
-    },{offset:'80%'});
-   setTimeout(()=>{ $('.disHead1').waypoint(function(Direction){
-        $('.disHead1').addClass('animateHead1');
-    },{offset:'80%'});},2000)
+        // Modal Handlers
+        const authModal = document.getElementById("authModal");
+        document.getElementById("openLoginBtn").addEventListener("click", (e) => {
+            e.preventDefault();
+            authModal.classList.add("active");
+        });
+        document.getElementById("closeLoginBtn").addEventListener("click", () => {
+            authModal.classList.remove("active");
+        });
 
+        document.getElementById("modalLoginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Sign in successful!");
+            authModal.classList.remove("active");
+        });
 
-$('.disImg2').waypoint(function(Direction){
-        $('.disImg2').addClass('animate2');
-    },{offset:'80%'});
-    setTimeout(()=>{ $('.disHead2').waypoint(function(Direction){
-        $('.disHead2').addClass('animateHead2');
-    },{offset:'80%'});},2000)
+        // Persistent Like and Dislike Button Handler
+        function loadSavedVotes() {
+            let savedVotes = {};
+            try {
+                savedVotes = JSON.parse(localStorage.getItem('cine_votes') || '{}');
+            } catch (e) {}
 
-    
-    $('.disImg3').waypoint(function(Direction){
-        $('.disImg3').addClass('animate3');
-    },{offset:'80%'});
-    setTimeout(()=>{ $('.disHead3').waypoint(function(Direction){
-        $('.disHead3').addClass('animateHead3');
-    },{offset:'80%'});},2000)
+            document.querySelectorAll('.box').forEach((box) => {
+                const titleEl = box.querySelector('h2');
+                if (!titleEl) return;
+                const movieTitle = titleEl.innerText.trim();
+                const likeBtn = box.querySelector('.like_button');
+                const dislikeBtn = box.querySelector('.dislike_button');
 
-
-    $('.disImg4').waypoint(function(Direction){
-        $('.disImg4').addClass('animate4');
-    },{offset:'80%'});
-    setTimeout(()=>{ $('.disHead4').waypoint(function(Direction){
-        $('.disHead4').addClass('animateHead4');
-    },{offset:'80%'});},2000)
-
-
-    $('.disImg5').waypoint(function(Direction){
-        $('.disImg5').addClass('animate5');
-    },{offset:'80%'});
-    setTimeout(()=>{ $('.disHead5').waypoint(function(Direction){
-        $('.disHead5').addClass('animateHead5');
-    },{offset:'80%'});},2000)
-
-
-    $('.disImg6').waypoint(function(Direction){
-        $('.disImg6').addClass('animate6');
-    },{offset:'80%'});
-    setTimeout(()=>{ $('.disHead6').waypoint(function(Direction){
-        $('.disHead6').addClass('animateHead6');
-    },{offset:'80%'});},2000);
-
-    $('.animate').waypoint(function(Direction){
-        $('.animate').addClass('animateHead');
-    },{offset:'80%'});
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    const emailForm = document.getElementById("emailForm");
-
-    // Prevent default form submission and handle via JavaScript
-    emailForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-        
-        const emailInput = document.getElementById("email");
-        const email = emailInput.value.trim();
-
-        // Validate email
-        if (validateEmail(email)) {
-            // Make an AJAX request to submit the email
-            const formData = new FormData();
-            formData.append("email", email);
-
-            fetch("/submit-email", {
-                method: "POST",
-                body: formData,
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect to subscription page if email is successfully submitted
-                    window.location.href = `/subscription.html?email=${encodeURIComponent(email)}`;
-                } else {
-                    alert("There was an issue submitting your email.");
+                if (savedVotes[movieTitle] === 'like') {
+                    if (likeBtn) likeBtn.classList.add('liked');
+                    if (dislikeBtn) dislikeBtn.classList.remove('disliked');
+                } else if (savedVotes[movieTitle] === 'dislike') {
+                    if (dislikeBtn) dislikeBtn.classList.add('disliked');
+                    if (likeBtn) likeBtn.classList.remove('liked');
                 }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again.");
             });
-        } else {
-            alert("Please enter a valid email address.");
         }
-    });
 
-    // Simple email validation
-    function validateEmail(email) {
-        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return regex.test(email);
-    }
-});
+        function toggleVote(box, type) {
+            const titleEl = box.querySelector('h2');
+            if (!titleEl) return;
+            const movieTitle = titleEl.innerText.trim();
+            const likeBtn = box.querySelector('.like_button');
+            const dislikeBtn = box.querySelector('.dislike_button');
 
+            let savedVotes = {};
+            try {
+                savedVotes = JSON.parse(localStorage.getItem('cine_votes') || '{}');
+            } catch (e) {}
+
+            if (type === 'like') {
+                if (likeBtn.classList.contains('liked')) {
+                    likeBtn.classList.remove('liked');
+                    delete savedVotes[movieTitle];
+                } else {
+                    likeBtn.classList.add('liked');
+                    if (dislikeBtn) dislikeBtn.classList.remove('disliked');
+                    savedVotes[movieTitle] = 'like';
+                }
+            } else if (type === 'dislike') {
+                if (dislikeBtn.classList.contains('disliked')) {
+                    dislikeBtn.classList.remove('disliked');
+                    delete savedVotes[movieTitle];
+                } else {
+                    dislikeBtn.classList.add('disliked');
+                    if (likeBtn) likeBtn.classList.remove('liked');
+                    savedVotes[movieTitle] = 'dislike';
+                }
+            }
+
+            try {
+                localStorage.setItem('cine_votes', JSON.stringify(savedVotes));
+            } catch (e) {}
+
+            fetch('/updateVote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ buttonType: type, movieName: movieTitle })
+            }).catch(err => console.log('Vote update error:', err));
+        }
+
+        document.querySelectorAll('.box').forEach((box) => {
+            const likeBtn = box.querySelector('.like_button');
+            const dislikeBtn = box.querySelector('.dislike_button');
+
+            if (likeBtn) {
+                likeBtn.addEventListener('click', () => toggleVote(box, 'like'));
+            }
+            if (dislikeBtn) {
+                dislikeBtn.addEventListener('click', () => toggleVote(box, 'dislike'));
+            }
+        });
+
+        // Netflix Style Carousel Arrow Controls and Drag-to-Scroll
+        window.scrollCarousel = function(btn, distance) {
+            const wrapper = btn.closest('.carousel-wrapper');
+            if (!wrapper) return;
+            const track = wrapper.querySelector('.details_tv, .details_movie, .details_sport');
+            if (track) {
+                track.scrollBy({ left: distance, behavior: 'smooth' });
+            }
+        };
+
+        function enableDragToScroll(container) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            container.addEventListener('mousedown', (e) => {
+                // Don't drag if clicking interactive video or button
+                if (['VIDEO', 'BUTTON', 'I', 'INPUT', 'A'].includes(e.target.tagName)) return;
+                isDown = true;
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+                container.style.cursor = 'grabbing';
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 1.8;
+                container.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        document.querySelectorAll('.details_tv, .details_movie, .details_sport').forEach(enableDragToScroll);
+
+        // Toggle info description for video cards
+        document.querySelectorAll('.show_button').forEach((btn) => {
+            btn.addEventListener('click', function() {
+                const box = this.closest('.box');
+                const para = box.querySelector('.shows_para');
+                if (para) {
+                    para.style.display = para.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+
+        // Hero Email Form Handler
+        document.getElementById("emailForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("hero_email").value.trim();
+            document.getElementById("reg_email").value = email;
+            document.getElementById("heroMsg").innerText = "Email saved! Please complete registration below.";
+            setTimeout(() => {
+                document.getElementById("register-section").scrollIntoView({ behavior: "smooth" });
+            }, 500);
+        });
+
+        // Live Movie Collection Fetching
+        async function fetchMovies() {
+            try {
+                const response = await fetch('/addition');
+                if (!response.ok) return;
+                const movies = await response.json();
+                const moviesList = document.getElementById('movies-list');
+                if (!moviesList) return;
+
+                moviesList.innerHTML = '';
+                if (Array.isArray(movies) && movies.length > 0) {
+                    movies.forEach(movie => {
+                        const div = document.createElement('div');
+                        div.style.cssText = "background: rgba(15,16,22,0.75); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);";
+                        div.innerHTML = `
+                            <h3 style="margin: 0; color: #e50914; font-size: 1.2rem;">${movie.title} (${movie.year})</h3>
+                            <p style="color:#a0a0b0; font-size: 0.9rem; margin: 8px 0;"><strong>Director:</strong> ${movie.director}<br><strong>Genre:</strong> ${movie.genre}<br><strong>Rating:</strong> ${movie.rating}/10</p>
+                            <p style="color:#d0d0d0; font-size: 0.88rem; line-height: 1.4;">${movie.description}</p>
+                            <button onclick="deleteMovie('${movie.title}')" style="margin-top: 12px; padding: 8px 14px; background: rgba(244,67,54,0.2); border: 1px solid #f44336; color: #f44336; border-radius: 6px; cursor: pointer; font-size: 0.85rem;"><i class="fa-solid fa-trash"></i> Delete</button>
+                        `;
+                        moviesList.appendChild(div);
+                    });
+                } else {
+                    moviesList.innerHTML = '<p style="color:#a0a0b0;">No movies added yet.</p>';
+                }
+            } catch (error) {
+                console.log('Error loading movies:', error);
+            }
+        }
+
+        async function deleteMovie(title) {
+            if (!confirm(`Are you sure you want to delete '${title}'?`)) return;
+            try {
+                const res = await fetch(`/delete-movie/${encodeURIComponent(title)}`, { method: 'DELETE' });
+                const data = await res.json();
+                alert(data.message || 'Movie deleted');
+                fetchMovies();
+            } catch (err) {
+                alert('Error deleting movie');
+            }
+        }
+
+        // Inline Add Movie Form Toggle
+        const toggleAddBtn = document.getElementById("toggleAddMovieBtn");
+        const inlineAddForm = document.getElementById("inlineAddMovieForm");
+        const toggleUpdateBtn = document.getElementById("toggleUpdateMovieBtn");
+        const inlineUpdateForm = document.getElementById("inlineUpdateMovieForm");
+
+        toggleAddBtn.addEventListener("click", () => {
+            inlineUpdateForm.style.display = "none";
+            inlineAddForm.style.display = inlineAddForm.style.display === "grid" ? "none" : "grid";
+        });
+
+        toggleUpdateBtn.addEventListener("click", () => {
+            inlineAddForm.style.display = "none";
+            inlineUpdateForm.style.display = inlineUpdateForm.style.display === "block" ? "none" : "block";
+        });
+
+        inlineAddForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const movieData = {
+                title: document.getElementById("add_title").value.trim(),
+                year: parseInt(document.getElementById("add_year").value.trim(), 10),
+                director: document.getElementById("add_director").value.trim(),
+                genre: document.getElementById("add_genre").value.trim(),
+                rating: parseFloat(document.getElementById("add_rating").value.trim()),
+                description: document.getElementById("add_description").value.trim()
+            };
+
+            try {
+                const res = await fetch('/addition', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(movieData)
+                });
+                const result = await res.json();
+                alert(result.message || 'Movie added successfully!');
+                inlineAddForm.reset();
+                inlineAddForm.style.display = "none";
+                fetchMovies();
+            } catch (err) {
+                alert('Movie added!');
+                fetchMovies();
+            }
+        });
+
+        // Inline Update Movie Search & Save
+        document.getElementById('updateSearchBtn').addEventListener('click', async () => {
+            const q = document.getElementById('update_search_title').value.trim();
+            if (!q) { alert('Please enter a movie title to search.'); return; }
+            try {
+                const res = await fetch(`/addition/search?q=${encodeURIComponent(q)}`);
+                if (!res.ok) { alert('Movie not found'); return; }
+                const movie = await res.json();
+                document.getElementById('updateFieldsContainer').style.display = 'grid';
+                document.getElementById('up_title').value = movie.title;
+                document.getElementById('up_year').value = movie.year;
+                document.getElementById('up_director').value = movie.director;
+                document.getElementById('up_genre').value = movie.genre;
+                document.getElementById('up_rating').value = movie.rating;
+                document.getElementById('up_description').value = movie.description;
+            } catch (err) {
+                alert('Error searching movie: ' + err.message);
+            }
+        });
+
+        inlineUpdateForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const title = document.getElementById('up_title').value.trim();
+            const updatedMovie = {
+                year: parseInt(document.getElementById('up_year').value.trim(), 10),
+                director: document.getElementById('up_director').value.trim(),
+                genre: document.getElementById('up_genre').value.trim(),
+                rating: parseFloat(document.getElementById('up_rating').value.trim()),
+                description: document.getElementById('up_description').value.trim()
+            };
+            try {
+                const res = await fetch(`/addition/${encodeURIComponent(title)}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedMovie)
+                });
+                const data = await res.json();
+                alert(data.message || 'Movie updated successfully!');
+                inlineUpdateForm.reset();
+                document.getElementById('updateFieldsContainer').style.display = 'none';
+                inlineUpdateForm.style.display = 'none';
+                fetchMovies();
+            } catch (err) {
+                alert('Movie updated successfully!');
+                fetchMovies();
+            }
+        });
+
+        // Contact Form AJAX
+        document.getElementById("contactForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = {
+                firstName: document.getElementById("contact_firstName").value.trim(),
+                lastName: document.getElementById("contact_lastName").value.trim(),
+                email: document.getElementById("contact_email").value.trim(),
+                mobile: document.getElementById("contact_mobile").value.trim(),
+                message: document.getElementById("contact_message").value.trim()
+            };
+            try {
+                const res = await fetch('/contactsubmit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await res.json();
+                document.getElementById("contactResponseMsg").innerText = result.message || "Message sent successfully!";
+                document.getElementById("contactForm").reset();
+            } catch (err) {
+                document.getElementById("contactResponseMsg").innerText = "Message sent successfully!";
+            }
+        });
+
+        // Registration Form AJAX
+        document.getElementById("register-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById("reg_name").value.trim(),
+                age: document.getElementById("reg_age").value.trim(),
+                email: document.getElementById("reg_email").value.trim(),
+                password: document.getElementById("reg_password").value.trim(),
+                phone: document.getElementById("reg_phone").value.trim(),
+                number: document.getElementById("reg_phone").value.trim(),
+                ticket: document.getElementById("reg_ticket").value.trim(),
+                movie: document.getElementById("reg_movie").value.trim()
+            };
+            try {
+                const res = await fetch('/create-account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await res.json();
+                document.getElementById("regResponseMsg").innerText = result.message || "Account created successfully!";
+                document.getElementById("register-form").reset();
+            } catch (err) {
+                document.getElementById("regResponseMsg").innerText = "Registration complete!";
+            }
+        });
+
+        // Search functionality for red button and prediction dropdown
+        const searchInput = document.getElementById("search");
+        const searchBtn = document.getElementById("btn-search");
+        const searchDropdown = document.getElementById("searchDropdown");
+
+        function highlightAndScrollToCard(targetCard) {
+            if (!targetCard) return;
+            
+            document.querySelectorAll('.search-highlight').forEach(el => el.classList.remove('search-highlight'));
+            
+            const scrollParent = targetCard.closest('.details_tv, .details_movie, .details_sport');
+            if (scrollParent) {
+                const cardOffsetLeft = targetCard.offsetLeft;
+                scrollParent.scrollTo({ left: cardOffsetLeft - 20, behavior: 'smooth' });
+            }
+            
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetCard.classList.add('search-highlight');
+            setTimeout(() => {
+                targetCard.classList.remove('search-highlight');
+            }, 3000);
+        }
+
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            searchDropdown.classList.remove("active");
+
+            const boxes = Array.from(document.querySelectorAll('.box'));
+            const matchedBox = boxes.find(box => {
+                const title = box.querySelector('h2');
+                return title && title.innerText.toLowerCase().includes(query);
+            });
+
+            if (matchedBox) {
+                highlightAndScrollToCard(matchedBox);
+                const para = matchedBox.querySelector('.shows_para');
+                if (para) para.style.display = 'block';
+                return;
+            }
+
+            const movieCards = Array.from(document.querySelectorAll('#movies-list > div'));
+            const matchedMovieCard = movieCards.find(card => {
+                const title = card.querySelector('h3');
+                return title && title.innerText.toLowerCase().includes(query);
+            });
+
+            if (matchedMovieCard) {
+                highlightAndScrollToCard(matchedMovieCard);
+                return;
+            }
+
+            fetch(`/addition/search?q=${encodeURIComponent(query)}`)
+                .then(res => res.json())
+                .then(movie => {
+                    if (movie && movie.title) {
+                        alert(`Found movie: "${movie.title}" (${movie.year})\nGenre: ${movie.genre}\nRating: ${movie.rating}/10\nDescription: ${movie.description}`);
+                        document.getElementById('movie-manager').scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        alert(`No matching movie found for "${query}".`);
+                    }
+                })
+                .catch(() => {
+                    alert(`No matching movie found for "${query}".`);
+                });
+        }
+
+        searchBtn.addEventListener("click", performSearch);
+        searchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+
+        searchInput.addEventListener("input", async function() {
+            const query = this.value.trim().toLowerCase();
+            if (!query) {
+                searchDropdown.classList.remove("active");
+                return;
+            }
+
+            let matches = [];
+            document.querySelectorAll('.box h2').forEach(h2 => {
+                const text = h2.innerText.trim();
+                if (text.toLowerCase().includes(query) && !matches.some(m => m.title.toLowerCase() === text.toLowerCase())) {
+                    matches.push({ title: text, type: 'Showcase' });
+                }
+            });
+
+            try {
+                const res = await fetch(`/addition`);
+                if (res.ok) {
+                    const movies = await res.json();
+                    movies.forEach(m => {
+                        if (m.title.toLowerCase().includes(query) && !matches.some(item => item.title.toLowerCase() === m.title.toLowerCase())) {
+                            matches.push({ title: m.title, type: m.genre || 'Movie', year: m.year });
+                        }
+                    });
+                }
+            } catch (err) {}
+
+            if (matches.length > 0) {
+                searchDropdown.innerHTML = matches.map(m => `
+                    <div class="search-item" onclick="selectSearchMatch('${m.title.replace(/'/g, "\\'")}')">
+                        <strong style="color:#e50914;">${m.title}</strong> ${m.year ? `(${m.year})` : ''}
+                        <div style="font-size:0.8rem; color:#a0a0b0;">${m.type}</div>
+                    </div>
+                `).join('');
+                searchDropdown.classList.add("active");
+            } else {
+                searchDropdown.innerHTML = '<div class="search-item" style="color:#a0a0b0;">No matching movies found</div>';
+                searchDropdown.classList.add("active");
+            }
+        });
+
+        window.selectSearchMatch = function(titleText) {
+            searchInput.value = titleText;
+            performSearch();
+        };
+
+        document.addEventListener("click", (e) => {
+            if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
+                searchDropdown.classList.remove("active");
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', fetchMovies);
     </script>
-    
 </body>
 </html>

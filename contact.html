@@ -3,72 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Mingle</title>
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/fav.ico">
+    <title>Contact Us - CineSequel</title>
+    <link rel="stylesheet" href="./front.css">
+    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
-    <div class="contact_div">
-        <div class="map">
-            <iframe class="contact_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219985.13239228545!2d76.49830977065896!3d30.51346873495391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fec00d166f58b%3A0x8a8c7b6ac3c8b0b1!2sCinepolis!5e0!3m2!1sen!2sin!4v1725277871006!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <form class="contact_start"> 
-            <div class="c_head"><h1>Contact us form</h1></div>
-            <div class="name">
-                <div class="input-group flex-nowrap c_name">
-                    <input type="text" class="form-control p-3 mb-2 bg-transparent text-white border border-dark fw-bolder" placeholder="First name" aria-label="Username" aria-describedby="addon-wrapping" id="contact_items">
+<body class="contact-body">
+    <div class="page-container">
+        <!-- Main Navigation Bar -->
+        <header class="main_nav">
+            <div class="brand">
+                <a href="/home" class="first_p" id="main">CineSequel</a>
+            </div>
+            <div class="navbar">
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="content part1"><a href="/home"><i class="fa-solid fa-house"></i>Home</a></li>
+                        <li class="content part4 cont_p"><a href="/front"><i class="fa-solid fa-medal"></i>About Us</a></li>
+                        <li class="content part6 cont_p"><a href="/register"><i class="fa-solid fa-user"></i>Registration</a></li>
+                        <li class="content part7 cont_p"><a href="/contact" class="active"><i class="fa-solid fa-address-book"></i>Contact Us</a></li>
+                        <li class="content part5 cont_p"><a href="#"><i class="fa-solid fa-list"></i>Categories</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li class="sub_part"><a href="/home#tv_part"><i class="fa-solid fa-tv"></i>TV</a></li>
+                                    <li class="sub_part"><a href="/home#movie_part"><i class="fa-solid fa-film"></i>Movies</a></li>
+                                    <li class="sub_part"><a href="/home#sports_part"><i class="fa-solid fa-trophy"></i>Sports</a></li>
+                                    <li class="sub_part"><a href="/front">About Us</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="content part6 cont_p"><a href="/loginPage"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                        <li class="content part7 cont_p"><a href="/signPage"><i class="fa-solid fa-user-plus"></i>Signin</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="contact-wrapper">
+            <div class="contact-glass-card">
+                <div class="contact-header-text">
+                    <h1>Get In Touch</h1>
+                    <p>Have questions, feedback, or need help? Reach out to the CineSequel team below.</p>
                 </div>
-                <div class="input-group flex-nowrap c_name">
-                    <input type="text" class="p-3 mb-2 bg-transparent text-white form-control border border-dark fw-bolder" placeholder="Last name" aria-label="Username" aria-describedby="addon-wrapping" id="contact_items">
+                <div class="contact-grid">
+                    <!-- Map Section -->
+                    <div class="map-container">
+                        <iframe class="contact_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219985.13239228545!2d76.49830977065896!3d30.51346873495391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fec00d166f58b%3A0x8a8c7b6ac3c8b0b1!2sCinepolis!5e0!3m2!1sen!2sin!4v1725277871006!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <!-- Contact Form Section -->
+                    <form class="contact_start"> 
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" placeholder="First name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Last name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number</label>
+                                <input type="tel" id="mobile" placeholder="Mobile" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="textarea">Message</label>
+                            <textarea id="textarea" rows="4" placeholder="Type your message here...." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-contact">Submit Message <i class="fa-solid fa-paper-plane"></i></button>
+                    </form> 
                 </div>
             </div>
-            <div class="contact_email">
-                <div class="mb-3 c_name">
-                    <input type="email" class="p-3 mb-2 bg-transparent text-white form-control border border-dark fw-bolder" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3 c_name">
-                    <input type="number" class="p-3 mb-2 bg-transparent text-white form-control border border-dark fw-bolder" id="exampleInputMobile" placeholder="Mobile">
-                </div>
-            </div>
-            <div class="area c_name1">
-                <textarea name="area" id="textarea" class="p-3 mb-2 bg-transparent text-white form-control text_area border border-dark fw-bolder" placeholder="Type your message here...."></textarea>
-            </div>
-            <div class="contact_send">
-                <button type="submit" class="button mb-2 bg-white text-dark fw-bolder">Submit</button>
-            </div>
-        </form> 
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <ul class="menu">
+                <li class="menu_item"><a class="menu_link" href="/home">Home</a></li>
+                <li class="menu_item"><a class="menu_link" href="/front">About</a></li>
+                <li class="menu_item"><a class="menu_link" href="/register">Register</a></li>
+                <li class="menu_item"><a class="menu_link" href="/contact">Contact</a></li>
+            </ul>
+            <p>&copy; 2026 CineSequel | All Rights Reserved</p>
+        </footer>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.querySelector("form.contact_start"); 
 
             form.addEventListener("submit", async (event) => {
                 event.preventDefault();
-                console.log("Form submitted"); 
 
                 const formData = {
-                    firstName: document.querySelector("input[placeholder='First name']").value,
-                    lastName: document.querySelector("input[placeholder='Last name']").value,
-                    email: document.querySelector("input[placeholder='Email']").value,
-                    mobile: document.querySelector("input[placeholder='Mobile']").value,
-                    message: document.querySelector("#textarea").value,
+                    firstName: document.querySelector("#firstName").value.trim(),
+                    lastName: document.querySelector("#lastName").value.trim(),
+                    email: document.querySelector("#email").value.trim(),
+                    mobile: document.querySelector("#mobile").value.trim(),
+                    message: document.querySelector("#textarea").value.trim(),
                 };
 
-                console.log("Form data:", formData); 
-
                 try {
-                    const response = await fetch("http://localhost:3000/contactsubmit", {
+                    const response = await fetch("/contactsubmit", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(formData),
                     });
 
                     const result = await response.json();
-                    console.log("Response from server:", result); 
-                    alert(result.message); 
+                    alert(result.message || "Message sent successfully!"); 
                     if (result.success) form.reset();
                 } catch (error) {
                     console.error("Error submitting form:", error); 
